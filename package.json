@@ -1,0 +1,27 @@
+{
+  "name": "noflo-rdf-pipeline",
+  "description": "NoFlo RDF-Pipeline",
+  "version": "0.0.0",
+  "author": {
+    "name": "Glenna Mayo",
+    "email": "glenna.hokukahu@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rdf-pipeline/noflo-rdf-pipeline"
+  },
+  "license": "(Apache-2.0)",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "noflo": "^0.5.14",
+    "noflo-core": "^0.1.14",
+    "noflo-filesystem": "^1.0.6",
+    "underscore": "~1.8.3"
+  },
+  "noflo": {
+    "components": {
+      "RequestTemplate": "./components/RequestTemplate.js",
+      "FileNode": "components/FileNode.js"
+    }
+  }
+}

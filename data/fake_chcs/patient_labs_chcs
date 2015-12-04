@@ -1,0 +1,706 @@
+{
+    "@context": "10.255.255.1:8080/context?dataset=chcs-1",
+    "@graph": [
+        {
+            "_id": "101-14213948",
+            "lab_processing_priority-101": {
+                "id": "102_3-9",
+                "label": "ROUTINE"
+            },
+            "nurse_sig-101": {
+                "id": "7-54367",
+                "label": "DOEXXX,JOHN"
+            },
+            "earliest_task_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "collection_method-101": {
+                "id": "chcss:101_110_03_E-SEND_PATIENT_TO_LAB",
+                "label": "SEND_PATIENT_TO_LAB"
+            },
+            "collection_sample-101": {
+                "id": "87-432",
+                "label": "HIV TUBE"
+            },
+            "date_time_of_collection-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "nurse_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "label": "070813-01265",
+            "meprs_code-101": {
+                "id": "8119-380",
+                "label": "BHAK"
+            },
+            "activity-101": {
+                "id": "chcss:101_2_01_E-INACTIVE",
+                "label": "INACTIVE"
+            },
+            "nonmodifiable-101": {
+                "id": "chcss:101_3_02_E-NONMODIFIABLE",
+                "label": "NONMODIFIABLE"
+            },
+            "user_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "origin_of_order-101": {
+                "id": "chcss:101_1_15_E-VERBAL",
+                "label": "VERBAL"
+            },
+            "inactive_status-101": {
+                "id": "chcss:101_2_03_E-RESULTED",
+                "label": "RESULTED"
+            },
+            "active_status-101": {
+                "id": "chcss:101_2_02_E-SIGNED",
+                "label": "SIGNED"
+            },
+            "order_type-101": {
+                "id": "102-4",
+                "label": "LAB"
+            },
+            "type": "chcss:101",
+            "order_required_data-101": [
+                {
+                    "display_order-101_11": "1",
+                    "order_required_data-101_11": {
+                        "id": "103_2-10",
+                        "label": "HIV SPECIMEN SOURCE"
+                    },
+                    "label": "HIV SPECIMEN SOURCE",
+                    "user_response-101_11": "8",
+                    "type": "chcss:101_11",
+                    "id": "102_33-10_14213948"
+                }
+            ],
+            "user_sig-101": {
+                "id": "2-34256",
+                "label": "DOEXXX,JOHN"
+            },
+            "stop_expiration_date-101": {
+                "type": "xsd:dateTime",
+                "value": "2011-02-12T09:04:00"
+            },
+            "patient-101": {
+                "id": "6-7893413",
+                "label": "DOEXXX,JANE"
+            },
+            "ordering_hcp-101": {
+                "id": "3-7856",
+                "label": "DOEXXX,JAMES"
+            },
+            "specimen_site-101": {
+                "id": "85-43",
+                "label": "SERUM"
+            },
+            "patient_location-101": {
+                "id": "85-23",
+                "label": "MILITARY SICKCALL NBHC 123"
+            },
+            "resulted_task_flag-101": {
+                "id": "chcss:101_161_E-1",
+                "label": "1"
+            },
+            "lab_test-101": {
+                "id": "89-3456",
+                "label": "HIV-1 AB"
+            },
+            "schedule_type-101": {
+                "id": "chcss:101_5_06_E-NOW",
+                "label": "NOW"
+            },
+            "priority-101": {
+                "id": "102_3-9",
+                "label": "ROUTINE"
+            },
+            "display_text-101": " HIV-1 AB~SEND PATIENT TO LAB~HIV TUBE~HIV TUBE  on 01 Jan 1990@0905",
+            "batch_id_number-101": "070813-00532",
+            "in_outpatient-101": {
+                "id": "chcss:101__04_E-OUTPATIENT",
+                "label": "OUTPATIENT"
+            },
+            "start_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "hcp_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T14:33:00"
+            },
+            "administration_times-101": "0905",
+            "id_number-101": "070813-01265",
+            "hcp_sig-101": {
+                "id": "3-7856",
+                "label": "DOEXXX,JAMES"
+            }
+        },
+        {
+            "_id": "101-14213950",
+            "lab_processing_priority-101": {
+                "id": "102_3-9",
+                "label": "ROUTINE"
+            },
+            "nurse_sig-101": {
+                "id": "7-54367",
+                "label": "DOEXXX,JOHN"
+            },
+            "earliest_task_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "collection_method-101": {
+                "id": "chcss:101_110_03_E-SEND_PATIENT_TO_LAB",
+                "label": "SEND_PATIENT_TO_LAB"
+            },
+            "collection_sample-101": {
+                "id": "62-3",
+                "label": "BLOOD"
+            },
+            "collection_sample_snomed_code-101": {
+                "id": "7502-83-987654",
+                "label": "87612001"
+            },
+            "date_time_of_collection-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "nurse_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "label": "070813-01267",
+            "meprs_code-101": {
+                "id": "8119-380",
+                "label": "BHAK"
+            },
+            "activity-101": {
+                "id": "chcss:101_2_01_E-INACTIVE",
+                "label": "INACTIVE"
+            },
+            "nonmodifiable-101": {
+                "id": "chcss:101_3_02_E-NONMODIFIABLE",
+                "label": "NONMODIFIABLE"
+            },
+            "user_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "origin_of_order-101": {
+                "id": "chcss:101_1_15_E-VERBAL",
+                "label": "VERBAL"
+            },
+            "inactive_status-101": {
+                "id": "chcss:101_2_03_E-RESULTED",
+                "label": "RESULTED"
+            },
+            "active_status-101": {
+                "id": "chcss:101_2_02_E-SIGNED",
+                "label": "SIGNED"
+            },
+            "order_type-101": {
+                "id": "102-4",
+                "label": "LAB"
+            },
+            "type": "chcss:101",
+            "user_sig-101": {
+                "id": "2-34256",
+                "label": "DOEXXX,JOHN"
+            },
+            "stop_expiration_date-101": {
+                "type": "xsd:dateTime",
+                "value": "2011-02-12T09:04:00"
+            },
+            "patient-101": {
+                "id": "6-7893413",
+                "label": "DOEXXX,JANE"
+            },
+            "ordering_hcp-101": {
+                "id": "3-7856",
+                "label": "DOEXXX,JAMES"
+            },
+            "specimen_site-101": {
+                "id": "55-89",
+                "label": "BLOOD"
+            },
+            "patient_location-101": {
+                "id": "85-23",
+                "label": "MILITARY SICKCALL NBHC 123"
+            },
+            "resulted_task_flag-101": {
+                "id": "chcss:101_161_E-1",
+                "label": "1"
+            },
+            "lab_test-101": {
+                "id": "75-2345",
+                "label": "1523 INPROCESSING PANEL01JAN90"
+            },
+            "schedule_type-101": {
+                "id": "chcss:101_5_06_E-NOW",
+                "label": "NOW"
+            },
+            "priority-101": {
+                "id": "102_3-9",
+                "label": "ROUTINE"
+            },
+            "display_text-101": " 1523 INPROCESSING PANEL09JAN10~SEND PATIENT TO LAB~BLOOD~LAV  on 01 Jan 1990@0905",
+            "batch_id_number-101": "070813-00532",
+            "in_outpatient-101": {
+                "id": "chcss:101__04_E-OUTPATIENT",
+                "label": "OUTPATIENT"
+            },
+            "start_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T09:05:00"
+            },
+            "hcp_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T14:33:00"
+            },
+            "administration_times-101": "0905",
+            "id_number-101": "070813-01267",
+            "hcp_sig-101": {
+                "id": "3-7856",
+                "label": "DOEXXX,JAMES"
+            }
+        },
+        {
+            "_id": "63-1003681",
+            "micro_conversion_flag-63": {
+                "id": "chcss:63__03_E-Micro_result_converted_for_4_41",
+                "label": "Micro_result_converted_for_4_41"
+            },
+            "label": "DOEXXX,JANE",
+            "clinical_chemistry-63": [
+                {
+                    "date_time_specimen_taken-63_04": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:01"
+                    },
+                    "login_date_time-63_04": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:12"
+                    },
+                    "collection_sample-63_04": {
+                        "id": "62-3",
+                        "label": "BLOOD"
+                    },
+                    "lab_work_element-63_04": {
+                        "id": "44-966",
+                        "label": "LABORATORY BMC 1523"
+                    },
+                    "specimen-63_04": {
+                        "id": "55-89",
+                        "label": "BLOOD"
+                    },
+                    "result-63_04": [
+                        {
+                            "enter_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "initial_viewer_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "rnr_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "test-63_07": {
+                                "id": "74-4321",
+				"label": "INPROCESSING SICKLE CELL TEST"
+                            },
+                            "rnr_action-63_07": {
+                                "id": "chcss:63_07__18_E-INITIALED",
+                                "label": "INITIALED"
+                            },
+                            "certify_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "label": "N",
+                            "initial_viewer-63_07": {
+                                "id": "2-2009",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "result-63_07": "N",
+                            "certify_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:08"
+                            },
+                            "order_task-63_07": {
+                                "id": "111-54345690",
+                                "label": "1990-01-01T09:05:00Z"
+                            },
+                            "enter_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:04"
+                            },
+                            "rnr_hcp-63_07": {
+                                "id": "3-7856",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "type": "chcss:63_07",
+                            "id": "63_07-3428_6929184.919299_1003681",
+                            "lab_method-63_07": {
+                                "id": "8710-1425",
+                                "label": "INPROCESSING SICKLE CELL TEST"
+                            }
+                        },
+                        {
+                            "enter_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "initial_viewer_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "rnr_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "test-63_07": {
+                                "id": "60-3475",
+                                "label": "INPROCESSING RPR"
+                            },
+                            "rnr_action-63_07": {
+                                "id": "chcss:63_07__18_E-INITIALED",
+                                "label": "INITIALED"
+                            },
+                            "certify_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "label": "N",
+                            "initial_viewer-63_07": {
+                                "id": "2-2009",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "result-63_07": "N",
+                            "certify_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:08"
+                            },
+                            "order_task-63_07": {
+                                "id": "111-54345690",
+                                "label": "1990-01-01T09:05:00Z"
+                            },
+                            "enter_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:04"
+                            },
+                            "rnr_hcp-63_07": {
+                                "id": "3-7856",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "type": "chcss:63_07",
+                            "id": "63_07-3475_6929184.919299_1003681",
+                            "lab_method-63_07": {
+                                "id": "8710-1468",
+                                "label": "INPROCESSING RPR"
+                            }
+                        },
+                        {
+                            "enter_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "initial_viewer_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "rnr_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "test-63_07": {
+                                "id": "60-3484",
+                                "label": "INPROCESSING G6PD"
+                            },
+                            "rnr_action-63_07": {
+                                "id": "chcss:63_07__18_E-INITIALED",
+                                "label": "INITIALED"
+                            },
+                            "certify_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "label": "N",
+                            "initial_viewer-63_07": {
+                                "id": "2-2009",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "result-63_07": "N",
+                            "certify_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:08"
+                            },
+                            "order_task-63_07": {
+                                "id": "111-54345690",
+                                "label": "1990-01-01T09:05:00Z"
+                            },
+                            "enter_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:04"
+                            },
+                            "rnr_hcp-63_07": {
+                                "id": "3-7856",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "type": "chcss:63_07",
+                            "id": "63_07-3484_6929184.919299_1003681",
+                            "lab_method-63_07": {
+                                "id": "8710-1474",
+                                "label": "INPROCESSING G6PD"
+                            }
+                        },
+                        {
+                            "enter_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "initial_viewer_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "rnr_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "test-63_07": {
+                                "id": "77-2345",
+                                "label": "INPROCESSING ABO"
+                            },
+                            "rnr_action-63_07": {
+                                "id": "chcss:63_07__18_E-INITIALED",
+                                "label": "INITIALED"
+                            },
+                            "certify_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "label": "O",
+                            "initial_viewer-63_07": {
+                                "id": "2-2009",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "result-63_07": "O",
+                            "certify_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:08"
+                            },
+                            "order_task-63_07": {
+                                "id": "111-54345690",
+                                "label": "1990-01-01T09:05:00Z"
+                            },
+                            "enter_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:04"
+                            },
+                            "rnr_hcp-63_07": {
+                                "id": "3-7856",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "type": "chcss:63_07",
+                            "id": "63_07-4102_6929184.919299_1003681",
+                            "lab_method-63_07": {
+                                "id": "8710-2036",
+                                "label": "INPROCESSING ABO ONLY"
+                            }
+                        },
+                        {
+                            "enter_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "initial_viewer_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "rnr_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:47:00"
+                            },
+                            "test-63_07": {
+                                "id": "60-4103",
+                                "label": "INPROCESSING RH"
+                            },
+                            "rnr_action-63_07": {
+                                "id": "chcss:63_07__18_E-INITIALED",
+                                "label": "INITIALED"
+                            },
+                            "certify_person-63_07": {
+                                "id": "4-24681",
+                                "label": "DOEXXX,ANN"
+                            },
+                            "label": "POS",
+                            "initial_viewer-63_07": {
+                                "id": "2-2009",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "result-63_07": "POS",
+                            "certify_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:08"
+                            },
+                            "order_task-63_07": {
+                                "id": "111-54345690",
+                                "label": "1990-01-01T09:05:00Z"
+                            },
+                            "enter_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T10:54:04"
+                            },
+                            "rnr_hcp-63_07": {
+                                "id": "3-7856",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "type": "chcss:63_07",
+                            "id": "63_07-4103_6929184.919299_1003681",
+                            "lab_method-63_07": {
+                                "id": "8710-2037",
+                                "label": "INPROCESSING RH"
+                            }
+                        }
+                    ],
+                    "requesting_location-63_04": {
+                        "id": "85-23",
+                        "label": "MILITARY SICKCALL NBHC 123"
+                    },
+                    "hcp-63_04": {
+                        "id": "3-7856",
+                        "label": "DOEXXX,JAMES"
+                    },
+                    "accession-63_04": "070814 INP 26065",
+                    "lab_archive_date-63_04": {
+                        "type": "xsd:date",
+                        "value": "1990-01-01"
+                    },
+                    "label": "1990-01-01T08:07:01Z",
+                    "type": "chcss:63_04",
+                    "id": "63_04-6929184.919299_1003681"
+                },
+                {
+                    "date_time_specimen_taken-63_04": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:00"
+                    },
+                    "login_date_time-63_04": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:12"
+                    },
+                    "performing_lab_disclosures-63_04": [
+                        {
+                            "id": "63_832-1_6929184.9391_1003681",
+                            "disclosure_id-63_832": "1",
+                            "type": "chcss:63_832",
+                            "disclosure_text-63_832": "Specimen sent to and test performed by:VIROMED LABORATORIES6101 Blue Circle DriveMinnetonka, MN 55343",
+                            "label": "1"
+                        }
+                    ],
+                    "origin_of_result-63_04": {
+                        "id": "chcss:63_04__24_E-PERFORMING_LABORATORY",
+                        "label": "PERFORMING_LABORATORY"
+                    },
+                    "collection_sample-63_04": {
+                        "id": "87-432",
+                        "label": "HIV TUBE"
+                    },
+                    "lab_work_element-63_04": {
+                        "id": "33-4325",
+                        "label": "N VIROMED REFRENCE LAB"
+                    },
+                    "specimen-63_04": {
+                        "id": "85-43",
+                        "label": "SERUM"
+                    },
+                    "result-63_04": [
+                        {
+                            "enter_person-63_07": {
+                                "id": "8-5432",
+                                "label": "REFERENCELAB,TECH"
+                            },
+                            "initial_viewer_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T07:41:00"
+                            },
+                            "rnr_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T07:41:00"
+                            },
+                            "test-63_07": {
+                                "id": "89-3456",
+                                "label": "HIV-1 AB"
+                            },
+                            "rnr_action-63_07": {
+                                "id": "chcss:63_07__18_E-INITIALED",
+                                "label": "INITIALED"
+                            },
+                            "certify_person-63_07": {
+                                "id": "8-43256",
+                                "label": "DOEXXX,BILL"
+                            },
+                            "sensitive_result-63_07": "Negative",
+                            "performing_lab_disclosure-63_07": "1",
+                            "label": "@",
+                            "initial_viewer-63_07": {
+                                "id": "2-2009",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "result-63_07": "@",
+                            "certify_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T07:47:00"
+                            },
+                            "order_task-63_07": {
+                                "id": "113-43238431",
+                                "label": "1990-01-01T09:05:00Z"
+                            },
+                            "enter_date_time-63_07": {
+                                "type": "xsd:dateTime",
+                                "value": "1990-01-01T14:37:00"
+                            },
+                            "rnr_hcp-63_07": {
+                                "id": "3-7856",
+                                "label": "DOEXXX,JAMES"
+                            },
+                            "type": "chcss:63_07",
+                            "id": "63_07-4220_6929184.9391_1003681",
+                            "lab_method-63_07": {
+                                "id": "8710-2972",
+                                "label": "HIV INTEROPERABILITY (01JAN90)"
+                            }
+                        }
+                    ],
+                    "requesting_location-63_04": {
+                        "id": "85-23",
+                        "label": "MILITARY SICKCALL NBHC 123"
+                    },
+                    "hcp-63_04": {
+                        "id": "3-7856",
+                        "label": "DOEXXX,JAMES"
+                    },
+                    "accession-63_04": "070814 N08 469187",
+                    "lab_archive_date-63_04": {
+                        "type": "xsd:date",
+                        "value": "1990-01-01"
+                    },
+                    "label": "1990-01-01T08:07:00Z",
+                    "type": "chcss:63_04",
+                    "id": "63_04-6929184.9391_1003681"
+                }
+            ],
+            "patient-63": {
+                "id": "6-7893413",
+                "label": "DOEXXX,JANE"
+            },
+            "type": "chcss:63"
+        }
+    ]
+}

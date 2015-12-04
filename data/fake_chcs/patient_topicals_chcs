@@ -1,0 +1,1140 @@
+{
+    "@context": "http://10.255.255.5:8080/context?dataset=chcs-1",
+    "@graph": [
+        {
+            "_id": "9876-1234567",
+            "name-8810": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "label": "DOEXXX,JOHN J",
+            "type": "chcss:8810",
+            "drug_allergy-8810": [
+                {
+                    "allergy_selection-8810_03": {
+                        "id": "8254_01-999004",
+                        "label": "NKDA"
+                    },
+                    "comment-8810_03": "era 01jan90",
+                    "type": "chcss:8810_03",
+                    "id": "8810_03-1_1005393",
+                    "label": "NKDA"
+                }
+            ]
+        },
+        {
+            "_id": "33_1-2345678",
+            "date_appointment_made-74_3": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T10:34:00"
+            },
+            "name-74_3": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "requesting_service-74_3": {
+                "id": "8119-378",
+                "label": "BFAA"
+            },
+            "appointment_status-74_3": {
+                "id": "8514-5",
+                "label": "WALK-IN"
+            },
+            "appointment_type-74_3": {
+                "id": "44_5-483",
+                "label": "SPEC"
+            },
+            "label": "DOEXXX,JOHN J",
+            "patient_status-74_3": {
+                "id": "chcss:74_3_8_E-OUTPATIENT",
+                "label": "OUTPATIENT"
+            },
+            "meprs_code-74_3": {
+                "id": "8119-378",
+                "label": "BFAA"
+            },
+            "patient_category-74_3": {
+                "id": "9053-5932",
+                "label": "USN AD RECRUIT"
+            },
+            "type": "chcss:74_3",
+            "workload_type-74_3": {
+                "id": "chcss:74_3_74_E-COUNT",
+                "label": "COUNT"
+            },
+            "appointment_comment-74_3": "2309",
+            "clinic-74_3": {
+                "id": "54-23",
+                "label": "SOCIAL WORK CLINIC"
+            },
+            "appointment_date_time-74_3": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T10:28:00"
+            },
+            "appt_division-74_3": {
+                "id": "40_8-1",
+                "label": "NH GREAT LAKES, 200H"
+            },
+            "provider-74_3": {
+                "id": "3-98765",
+                "label": "DOEXXX,JAMES"
+            },
+            "walkin-74_3": {
+                "id": "chcss:74_3_20_E-WALK_IN",
+                "label": "WALK_IN"
+            },
+            "duration-74_3": "60",
+            "reason_for_appointment-74_3": "Ship 17 Transitional Screening",
+            "checkedin-74_3": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T10:28:00"
+            }
+        },
+        {
+            "_id": "74_3-7997902",
+            "date_appointment_made-74_3": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "name-74_3": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "duration-74_3": "15",
+            "clinic-74_3": {
+                "id": "99-5432",
+                "label": "TREATMENT ROOM BMC 1233"
+            },
+            "label": "DOEXXX,JOHN J",
+            "appointment_type-74_3": {
+                "id": "44_5-486",
+                "label": "ACUT$"
+            },
+            "appointment_date_time-74_3": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:23:00"
+            },
+            "injury_accident_related-74_3": true,
+            "checkedin-74_3": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:23:00"
+            },
+            "patient_status-74_3": {
+                "id": "chcss:74_3_8_E-OUTPATIENT",
+                "label": "OUTPATIENT"
+            },
+            "meprs_code-74_3": {
+                "id": "8119-381",
+                "label": "BHAI"
+            },
+            "patient_category-74_3": {
+                "id": "9053-5932",
+                "label": "USN AD RECRUIT"
+            },
+            "appt_division-74_3": {
+                "id": "33_9-6",
+                "label": "NBHC 7123_7108"
+            },
+            "provider-74_3": {
+                "id": "3-76543",
+                "label": "DOEXXX,ANN"
+            },
+            "walkin-74_3": {
+                "id": "chcss:74_3_20_E-WALK_IN",
+                "label": "WALK_IN"
+            },
+            "type": "chcss:74_3",
+            "workload_type-74_3": {
+                "id": "chcss:74_3_74_E-COUNT",
+                "label": "COUNT"
+            },
+            "appointment_status-74_3": {
+                "id": "8514-5",
+                "label": "WALK-IN"
+            }
+        },
+        {
+            "_id": "55-1234567",
+            "name-55": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "type": "chcss:55",
+            "label": "DOEXXX,JOHN J"
+        },
+        {
+            "_id": "654321-1234567",
+            "label": "15289;UNSPECIFIED PSYCHOSOCIAL CIRCUMSTANCE",
+            "diagnosis-100417": "V62.9",
+            "date_of_onset-100417": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "status-100417": {
+                "id": "chcss:100417__06_E-Active",
+                "label": "Active"
+            },
+            "patient-100417": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "type": "chcss:100417",
+            "location-100417": {
+                "id": "54-23",
+                "label": "SOCIAL WORK CLINIC"
+            },
+            "problem-100417": "15289;UNSPECIFIED PSYCHOSOCIAL CIRCUMSTANCE"
+        },
+        {
+            "_id": "456789-9876543",
+            "label": "4159;OTHER SPECIFIED DISEASES OF HAIR AND HAIR FOLLICLES",
+            "diagnosis-100417": "704.8",
+            "date_of_onset-100417": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "status-100417": {
+                "id": "chcss:100417__06_E-Active",
+                "label": "Active"
+            },
+            "patient-100417": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "type": "chcss:100417",
+            "location-100417": {
+                "id": "99-5432",
+                "label": "TREATMENT ROOM RNC 1234"
+            },
+            "problem-100417": "4159;OTHER SPECIFIED DISEASES OF HAIR AND HAIR FOLLICLES"
+        },
+        {
+            "_id": "02-3_98765432-12345678",
+            "dispensing_pharmacy-101": {
+                "id": "12-3-4",
+                "label": "USS LADY GAGA (1234)"
+            },
+            "earliest_task_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "outpat_med_order_date-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "label": "123456-54321",
+            "meprs_code-101": {
+                "id": "8119-381",
+                "label": "BHAI"
+            },
+            "days_supply-101": "30",
+            "activity-101": {
+                "id": "chcss:101_2_01_E-INACTIVE",
+                "label": "INACTIVE"
+            },
+            "outpat_med_expiration_date-101": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "resulted_task_flag-101": {
+                "id": "chcss:101_161_E-1",
+                "label": "1"
+            },
+            "user_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "origin_of_order-101": {
+                "id": "chcss:101_1_15_E-HCP",
+                "label": "HCP"
+            },
+            "inactive_status-101": {
+                "id": "chcss:101_2_03_E-DISCONTINUED",
+                "label": "DISCONTINUED"
+            },
+            "status_change-101": [
+                {
+                    "authorizing_hcp-101_05": {
+                        "id": "6-33950",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "user-101_05": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "status_change-101_05": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:00"
+                    },
+                    "comment-101_05": "k",
+                    "label": "1990-01-01T08:42:00Z",
+                    "type": "chcss:101_05",
+                    "id": "101_05-1_14065784"
+                },
+                {
+                    "authorizing_hcp-101_05": {
+                        "id": "3-76543",
+                        "label": "DOEXXX,ANN"
+                    },
+                    "change-101_05": {
+                        "id": "112-6",
+                        "label": "DISCONTINUED due to Expiration"
+                    },
+                    "user-101_05": {
+                        "id": "3-9101",
+                        "label": "DOEXXX,ANN"
+                    },
+                    "status_change-101_05": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:09:00"
+                    },
+                    "label": "1990-01-01T08:09:00Z",
+                    "type": "chcss:101_05",
+                    "id": "101_05-2_14065784"
+                }
+            ],
+            "order_type-101": {
+                "id": "102-9",
+                "label": "RX"
+            },
+            "quantity-101": "20",
+            "type": "chcss:101",
+            "_refills-101": "0",
+            "user_sig-101": {
+                "id": "3-9101",
+                "label": "DOEXXX,ANN"
+            },
+            "stop_expiration_date-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "pdts_prescription_number-101": "5555555",
+            "patient-101": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "qa_event_date-101": [
+                {
+                    "justification_authorizing-101_03": "PDTS will process the prescription for PRODUR warnings.",
+                    "qa_event_date-101_03": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:08"
+                    },
+                    "label": "1990-01-01T08:07:08Z",
+                    "warning_message-101_03": "01 Jan 1990@08:07:08 Prescription transmitted to PDTS.",
+                    "type": "chcss:101_03",
+                    "id": "101_03-1_14065784",
+                    "qa_event_type-101_03": {
+                        "id": "102_1-30",
+                        "label": "PDTS-STATUS"
+                    }
+                },
+                {
+                    "justification_authorizing-101_03": "PDTS found no PRODUR warnings.",
+                    "qa_event_date-101_03": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:11"
+                    },
+                    "label": "1990-01-01T08:07:11Z",
+                    "warning_message-101_03": "01 Jan 1990@08:07:11 Completed Processing",
+                    "type": "chcss:101_03",
+                    "id": "101_03-2_14065784",
+                    "qa_event_type-101_03": {
+                        "id": "102_1-30",
+                        "label": "PDTS-STATUS"
+                    }
+                }
+            ],
+            "order_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "ordering_hcp-101": {
+                "id": "3-76543",
+                "label": "DOEXXX,ANN"
+            },
+            "pdts_date_filled-101": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "patient_location-101": {
+                "id": "12-345678",
+                "label": "1234 AFTER HOURS TREATMENT"
+            },
+            "inpatient_sig-101": "AAA QAM ",
+            "child_resistant_container-101": true,
+            "priority-101": {
+                "id": "102_3-9",
+                "label": "ROUTINE"
+            },
+            "medication-101": {
+                "sameAs": "nddf:cdc007128",
+                "sameAsLabel": "CLIOQUINOL-HC 3-1 CREAM",
+                "id": "50-714",
+                "label": "D-VIOFORM HC (VIOCORT EQUIV)CREA"
+            },
+            "pdts_collection-101": {
+                "id": "8888-8765432",
+                "label": "8765432"
+            },
+            "pdts_fill_cost-101": ".10",
+            "display_text-101": "  VIOFORM HC (VIOCORT EQUIV)--TOP CREA~AAA QAM RF0 #20 DS30  on 01 Jan 1990@0807 (m-1)",
+            "batch_id_number-101": "345678-87654",
+            "in_outpatient-101": {
+                "id": "chcss:101__04_E-OUTPATIENT",
+                "label": "OUTPATIENT"
+            },
+            "start_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "hcp_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "id_number-101": "123456-54321",
+            "pdts_pharmacy_number-101": "1548367394",
+            "hcp_sig-101": {
+                "id": "3-76543",
+                "label": "DOEXXX,ANN"
+            }
+        },
+        {
+            "_id": "101-14065786",
+            "dispensing_pharmacy-101": {
+                "id": "12-3-4",
+                "label": "USS LADY GAGA (1234)"
+            },
+            "earliest_task_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "outpat_med_order_date-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "label": "765421-12345",
+            "meprs_code-101": {
+                "id": "8119-381",
+                "label": "BHAI"
+            },
+            "days_supply-101": "30",
+            "activity-101": {
+                "id": "chcss:101_2_01_E-INACTIVE",
+                "label": "INACTIVE"
+            },
+            "outpat_med_expiration_date-101": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "resulted_task_flag-101": {
+                "id": "chcss:101_161_E-1",
+                "label": "1"
+            },
+            "user_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "origin_of_order-101": {
+                "id": "chcss:101_1_15_E-HCP",
+                "label": "HCP"
+            },
+            "inactive_status-101": {
+                "id": "chcss:101_2_03_E-DISCONTINUED",
+                "label": "DISCONTINUED"
+            },
+            "status_change-101": [
+                {
+                    "authorizing_hcp-101_05": {
+                        "id": "6-33950",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "user-101_05": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "status_change-101_05": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:00"
+                    },
+                    "comment-101_05": "k",
+                    "label": "1990-01-01T08:42:00Z",
+                    "type": "chcss:101_05",
+                    "id": "02-3_98765432-3_34567890"
+                },
+                {
+                    "authorizing_hcp-101_05": {
+                        "id": "3-76543",
+                        "label": "DOEXXX,ANN"
+                    },
+                    "change-101_05": {
+                        "id": "112-6",
+                        "label": "DISCONTINUED due to Expiration"
+                    },
+                    "user-101_05": {
+                        "id": "3-9101",
+                        "label": "DOEXXX,ANN"
+                    },
+                    "status_change-101_05": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:09:00"
+                    },
+                    "label": "1990-01-01T08:09:00Z",
+                    "type": "chcss:101_05",
+                    "id": "101_05-2_14065786"
+                }
+            ],
+            "order_type-101": {
+                "id": "102-9",
+                "label": "RX"
+            },
+            "quantity-101": "20",
+            "type": "chcss:101",
+            "_refills-101": "0",
+            "user_sig-101": {
+                "id": "3-9101",
+                "label": "DOEXXX,ANN"
+            },
+            "stop_expiration_date-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "pdts_prescription_number-101": "6666666",
+            "patient-101": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "qa_event_date-101": [
+                {
+                    "justification_authorizing-101_03": "PDTS will process the prescription for PRODUR warnings.",
+                    "qa_event_date-101_03": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:08"
+                    },
+                    "label": "1990-01-01T08:07:08Z",
+                    "warning_message-101_03": "01 Jan 1990@08:07:08 Prescription transmitted to PDTS.",
+                    "type": "chcss:101_03",
+                    "id": "101_03-1_14065786",
+                    "qa_event_type-101_03": {
+                        "id": "102_1-30",
+                        "label": "PDTS-STATUS"
+                    }
+                },
+                {
+                    "justification_authorizing-101_03": "PDTS found no PRODUR warnings.",
+                    "qa_event_date-101_03": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:12"
+                    },
+                    "label": "1990-01-01T08:07:12Z",
+                    "warning_message-101_03": "01 Jan 1990@08:07:12 Completed Processing",
+                    "type": "chcss:101_03",
+                    "id": "432-01-4_12345678",
+                    "qa_event_type-101_03": {
+                        "id": "102_1-30",
+                        "label": "PDTS-STATUS"
+                    }
+                }
+            ],
+            "order_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "ordering_hcp-101": {
+                "id": "3-76543",
+                "label": "DOEXXX,ANN"
+            },
+            "pdts_date_filled-101": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "patient_location-101": {
+                "id": "12-345678",
+                "label": "1234 AFTER HOURS TREATMENT"
+            },
+            "inpatient_sig-101": "AAA QHS THEN WASH OFF AFTER 8 HRS #1 RF0",
+            "child_resistant_container-101": true,
+            "priority-101": {
+                "id": "102_3-9",
+                "label": "ROUTINE"
+            },
+            "medication-101": {
+                "sameAs": "nddf:cdc005797",
+                "sameAsLabel": "TRETINOIN 0.01% GEL",
+                "id": "50-4096",
+                "label": "RETIN A(EQ) 0.01% GEL ($6.14_15GM)"
+            },
+            "pdts_collection-101": {
+                "id": "8888-8237218",
+                "label": "8237218"
+            },
+            "pdts_fill_cost-101": ".25",
+            "display_text-101": "  RETIN A 0.01% GEL ($11.13/15GM)--TOP 0.0~AAA QHS THEN WASH OFF AFTER 8 HRS RF0 #20 DS30  on 01 Jan 1990@0807 (m-1)",
+            "batch_id_number-101": "345678-87654",
+            "in_outpatient-101": {
+                "id": "chcss:101__04_E-OUTPATIENT",
+                "label": "OUTPATIENT"
+            },
+            "start_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "hcp_sig_date_time-101": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "id_number-101": "765421-12345",
+            "pdts_pharmacy_number-101": "1548367394",
+            "hcp_sig-101": {
+                "id": "3-76543",
+                "label": "DOEXXX,ANN"
+            }
+        },
+        {
+            "_id": "99-98765432",
+            "last_fill_date-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "comments-52": "NONE",
+            "last_dispensing_pharmacy-52": {
+                "id": "12-3-4",
+                "label": "USS LADY GAGA (1234)"
+            },
+            "days_supply-52": "30",
+            "meprs_code-52": {
+                "id": "8119-381",
+                "label": "BHAI"
+            },
+            "logged_by-52": {
+                "id": "3-9101",
+                "label": "DOEXXX,ANN"
+            },
+            "order_date_time-52": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "fill_dates-52": [
+                {
+                    "dispensed_date-52_01": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:43:00"
+                    },
+                    "qty-52_01": "20",
+                    "fill_cost_flag-52_01": {
+                        "id": "chcss:52_01_16_E-PDTS",
+                        "label": "PDTS"
+                    },
+                    "outpatient_site-52_01": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "id": "52_01-1_6765894",
+                    "mtf_division-52_01": {
+                        "id": "33_9-6",
+                        "label": "NBHC 7123_7108"
+                    },
+                    "action-52_01": {
+                        "id": "chcss:52_01_7_E-DISPENSED",
+                        "label": "DISPENSED"
+                    },
+                    "label": "1990-01-01T08:07:14Z",
+                    "suspense-52_01": {
+                        "id": "chcss:52_01_10_E-PRINTED_WARNING_LABELS",
+                        "label": "PRINTED_WARNING_LABELS"
+                    },
+                    "fill_cost-52_01": "1.99",
+                    "pdts_collection-52_01": {
+                        "id": "8888-8237377",
+                        "label": "8237377"
+                    },
+                    "workload_counted-52_01": {
+                        "id": "chcss:52_01_14_E-YES__WORKLOAD_WAS_COUNTED",
+                        "label": "YES__WORKLOAD_WAS_COUNTED"
+                    },
+                    "logged_by-52_01": {
+                        "id": "3-9101",
+                        "label": "DOEXXX,ANN"
+                    },
+                    "type": "chcss:52_01",
+                    "meprs_code-52_01": {
+                        "id": "8119-381",
+                        "label": "BHAI"
+                    },
+                    "pdts_date_filled-52_01": {
+                        "type": "xsd:date",
+                        "value": "1990-01-01"
+                    },
+                    "oib_ascii_disposition-52_01": {
+                        "id": "chcss:52_01_1_03_E-Not_billable",
+                        "label": "Not_billable"
+                    },
+                    "pdts_pharmacy_number-52_01": "1548367394",
+                    "label_print_date_time-52_01": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:00"
+                    },
+                    "fill_number-52_01": "1",
+                    "pdts_fill_cost-52_01": "1.99",
+                    "message_type_51-52_01": {
+                        "id": "chcss:52_01_2_11_E-BILLING",
+                        "label": "BILLING"
+                    },
+                    "oib_suspense-52_01": {
+                        "id": "chcss:52_01_1_02_E-Added_to_the_Suspense_file",
+                        "label": "Added_to_the_Suspense_file"
+                    },
+                    "fill_dates-52_01": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:14"
+                    },
+                    "pdts_sent-52_01": {
+                        "id": "chcss:52_01_2_01_E-Message_Sent_to_PDTS",
+                        "label": "Message_Sent_to_PDTS"
+                    },
+                    "ncpdp_version_number-52_01": {
+                        "id": "chcss:52_01_2_1_E-5_1",
+                        "label": "5_1"
+                    }
+                }
+            ],
+            "refills-52": "0",
+            "expanded_sig-52": "APPLY TO AFFECTED AREAS~EVERY MORNING ~",
+            "date_time_received_from_oe-52": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "status-52": {
+                "id": "chcss:52__11_E-EXPIRED",
+                "label": "EXPIRED"
+            },
+            "last_label_print_date-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "baker_drug_edit-52": "1",
+            "edited-52": {
+                "id": "chcss:52__24_E-YES",
+                "label": "YES"
+            },
+            "label": "R2658759",
+            "sig-52": "AAA QAM ",
+            "pdts_prescription_number-52": "5555555",
+            "provider-52": {
+                "id": "3-76543",
+                "label": "DOEXXX,ANN"
+            },
+            "type": "chcss:52",
+            "mtf_division-52": {
+                "id": "33_9-6",
+                "label": "NBHC 7123_7108"
+            },
+            "refills_remaining-52": "0",
+            "login_date-52": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "order_entry_number-52": "123456-54321",
+            "drug-52": {
+                "sameAs": "nddf:cdc007128",
+                "sameAsLabel": "CLIOQUINOL-HC 3-1 CREAM",
+                "id": "50-714",
+                "label": "D-VIOFORM HC (VIOCORT EQUIV)CREA"
+            },
+            "refill_control-52": "0",
+            "expiration_date-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "outpatient_site-52": {
+                "id": "12-3-4",
+                "label": "USS LADY GAGA (1234)"
+            },
+            "child_resistant_cont-52": true,
+            "order_pointer-52": {
+                "id": "02-3_98765432-12345678",
+                "label": "123456-54321"
+            },
+            "label_width-52": "27",
+            "activity_log_comments-52": "k",
+            "patient-52": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "activity_log-52": [
+                {
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:23"
+                    },
+                    "type": "chcss:52_02",
+                    "remarks-52_02": "<Prescription message transmitted to PDTS for processing>",
+                    "label": "1990-01-01T08:42:23Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-211",
+                        "label": "TRANSMIT"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "user_comments-52_02": "Transmitted by GIS on 01 Jan 1990@0842",
+                    "id": "52_02-1_6765894"
+                },
+                {
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:27"
+                    },
+                    "type": "chcss:52_02",
+                    "remarks-52_02": "See below for EDIT activity.",
+                    "label": "1990-01-01T08:42:27Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-50",
+                        "label": "EDIT"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "user_comments-52_02": "k",
+                    "id": "52_02-3_6789012"
+                },
+                {
+                    "remarks-52_02": "<Communication With PDTS Complete>",
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:28"
+                    },
+                    "label": "1990-01-01T08:42:28Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-215",
+                        "label": "COMPLETE"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "type": "chcss:52_02",
+                    "id": "52_02-3_6765894"
+                },
+                {
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:43:52"
+                    },
+                    "label": "1990-01-01T08:43:52Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-40",
+                        "label": "DISPENSED"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "type": "chcss:52_02",
+                    "id": "52_02-9_2345678"
+                }
+            ],
+            "fill_expiration-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "rx_-52": "R2658759",
+            "qty-52": "20"
+        },
+        {
+            "_id": "55-5432109",
+            "last_fill_date-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "comments-52": "NONE",
+            "last_dispensing_pharmacy-52": {
+                "id": "12-3-4",
+                "label": "USS LADY GAGA (1234)"
+            },
+            "days_supply-52": "30",
+            "meprs_code-52": {
+                "id": "8119-381",
+                "label": "BHAI"
+            },
+            "logged_by-52": {
+                "id": "3-9101",
+                "label": "DOEXXX,ANN"
+            },
+            "order_date_time-52": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "fill_dates-52": [
+                {
+                    "dispensed_date-52_01": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:43:00"
+                    },
+                    "qty-52_01": "20",
+                    "fill_cost_flag-52_01": {
+                        "id": "chcss:52_01_16_E-PDTS",
+                        "label": "PDTS"
+                    },
+                    "outpatient_site-52_01": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "id": "52_01-1_6765895",
+                    "mtf_division-52_01": {
+                        "id": "33_9-6",
+                        "label": "NBHC 7123_7108"
+                    },
+                    "action-52_01": {
+                        "id": "chcss:52_01_7_E-DISPENSED",
+                        "label": "DISPENSED"
+                    },
+                    "label": "1990-01-01T08:07:14Z",
+                    "suspense-52_01": {
+                        "id": "chcss:52_01_10_E-PRINTED_WARNING_LABELS",
+                        "label": "PRINTED_WARNING_LABELS"
+                    },
+                    "fill_cost-52_01": "4.96",
+                    "pdts_collection-52_01": {
+                        "id": "8888-8237378",
+                        "label": "8237378"
+                    },
+                    "workload_counted-52_01": {
+                        "id": "chcss:52_01_14_E-YES__WORKLOAD_WAS_COUNTED",
+                        "label": "YES__WORKLOAD_WAS_COUNTED"
+                    },
+                    "logged_by-52_01": {
+                        "id": "3-9101",
+                        "label": "DOEXXX,ANN"
+                    },
+                    "type": "chcss:52_01",
+                    "meprs_code-52_01": {
+                        "id": "8119-381",
+                        "label": "BHAI"
+                    },
+                    "pdts_date_filled-52_01": {
+                        "type": "xsd:date",
+                        "value": "1990-01-01"
+                    },
+                    "oib_ascii_disposition-52_01": {
+                        "id": "chcss:52_01_1_03_E-Not_billable",
+                        "label": "Not_billable"
+                    },
+                    "pdts_pharmacy_number-52_01": "1548367394",
+                    "label_print_date_time-52_01": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:00"
+                    },
+                    "fill_number-52_01": "1",
+                    "pdts_fill_cost-52_01": "4.96",
+                    "message_type_51-52_01": {
+                        "id": "chcss:52_01_2_11_E-BILLING",
+                        "label": "BILLING"
+                    },
+                    "oib_suspense-52_01": {
+                        "id": "chcss:52_01_1_02_E-Added_to_the_Suspense_file",
+                        "label": "Added_to_the_Suspense_file"
+                    },
+                    "fill_dates-52_01": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:07:14"
+                    },
+                    "pdts_sent-52_01": {
+                        "id": "chcss:52_01_2_01_E-Message_Sent_to_PDTS",
+                        "label": "Message_Sent_to_PDTS"
+                    },
+                    "ncpdp_version_number-52_01": {
+                        "id": "chcss:52_01_2_1_E-5_1",
+                        "label": "5_1"
+                    }
+                }
+            ],
+            "refills-52": "0",
+            "expanded_sig-52": "APPLY TO AFFECTED AREAS~EVERY NIGHT THEN WASH OFF~AFTER 8 HRS  ~",
+            "date_time_received_from_oe-52": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "status-52": {
+                "id": "chcss:52__11_E-EXPIRED",
+                "label": "EXPIRED"
+            },
+            "last_label_print_date-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "baker_drug_edit-52": "1",
+            "edited-52": {
+                "id": "chcss:52__24_E-YES",
+                "label": "YES"
+            },
+            "label": "R2658760",
+            "sig-52": "AAA QHS THEN WASH OFF AFTER 8 HRS #1 RF0",
+            "pdts_prescription_number-52": "6666666",
+            "provider-52": {
+                "id": "3-76543",
+                "label": "DOEXXX,ANN"
+            },
+            "type": "chcss:52",
+            "mtf_division-52": {
+                "id": "33_9-6",
+                "label": "NBHC 7123_7108"
+            },
+            "refills_remaining-52": "0",
+            "login_date-52": {
+                "type": "xsd:dateTime",
+                "value": "1990-01-01T08:07:00"
+            },
+            "order_entry_number-52": "765421-12345",
+            "drug-52": {
+                "sameAs": "nddf:cdc005797",
+                "sameAsLabel": "TRETINOIN 0.01% GEL",
+                "id": "50-4096",
+                "label": "RETIN A(EQ) 0.01% GEL ($6.14_15GM)"
+            },
+            "refill_control-52": "0",
+            "expiration_date-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "outpatient_site-52": {
+                "id": "12-3-4",
+                "label": "USS LADY GAGA (1234)"
+            },
+            "child_resistant_cont-52": true,
+            "order_pointer-52": {
+                "id": "101-14065786",
+                "label": "765421-12345"
+            },
+            "label_width-52": "27",
+            "activity_log_comments-52": "k",
+            "patient-52": {
+                "id": "1-1234567",
+                "label": "DOEXXX,JOHN J"
+            },
+            "activity_log-52": [
+                {
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:31"
+                    },
+                    "type": "chcss:52_02",
+                    "remarks-52_02": "<Prescription message transmitted to PDTS for processing>",
+                    "label": "1990-01-01T08:42:31Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-211",
+                        "label": "TRANSMIT"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "user_comments-52_02": "Transmitted by GIS on 01 Jan 1990@0842",
+                    "id": "52_02-1_6765895"
+                },
+                {
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:37"
+                    },
+                    "type": "chcss:52_02",
+                    "remarks-52_02": "See below for EDIT activity.",
+                    "label": "1990-01-01T08:42:37Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-50",
+                        "label": "EDIT"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "user_comments-52_02": "k",
+                    "id": "52_02-2_6765895"
+                },
+                {
+                    "remarks-52_02": "<Communication With PDTS Complete>",
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:42:38"
+                    },
+                    "label": "1990-01-01T08:42:38Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-215",
+                        "label": "COMPLETE"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "type": "chcss:52_02",
+                    "id": "33_10-2_9886543"
+                },
+                {
+                    "activity_log-52_02": {
+                        "type": "xsd:dateTime",
+                        "value": "1990-01-01T08:43:52"
+                    },
+                    "label": "1990-01-01T08:43:52Z",
+                    "reason_code-52_02": {
+                        "id": "52_3-40",
+                        "label": "DISPENSED"
+                    },
+                    "logged_by-52_02": {
+                        "id": "7-402-3_987654320",
+                        "label": "DOEXXX,MARY"
+                    },
+                    "pharmacy_site-52_02": {
+                        "id": "12-3-4",
+                        "label": "USS LADY GAGA (1234)"
+                    },
+                    "associated_fill_number-52_02": "1",
+                    "type": "chcss:52_02",
+                    "id": "98-76-5-402-3_98765432098"
+                }
+            ],
+            "fill_expiration-52": {
+                "type": "xsd:date",
+                "value": "1990-01-01"
+            },
+            "rx_-52": "R2658762",
+            "qty-52": "20"
+        }
+    ]
+}

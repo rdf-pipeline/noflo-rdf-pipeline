@@ -1,0 +1,26 @@
+{
+    "@context": "http://10.255.255.5:8080/context?dataset=chcs-1",
+    "@graph": [
+        {
+            "_id": "1234-1234567",
+            "name-1234": {
+                "id": "2-1234567",
+                "label": "DOEXXX,JANE U"
+            },
+            "label": "DOEXXX,JANE U",
+            "type": "chcss:1234",
+            "drug_allergy-1234": [
+                {
+                    "allergy_selection-1234_03": {
+                        "id": "8254_01-1000",
+                        "label": "PENICILLINS"
+                    },
+                    "comment-1234_03": "Reaction(s): Rash",
+                    "type": "chcss:1234_03",
+                    "id": "1234_03-1_1234567",
+                    "label": "PENICILLINS"
+                }
+            ]
+        }
+    ]
+}

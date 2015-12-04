@@ -1,0 +1,161 @@
+{
+    "properties": {
+        "name": "0001_Update_chain_addone",
+        "description": "Verifies that a change to the node :max input file will cause the change the ripple through the pipeline."
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "Max": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "Max",
+                "x": 288,
+                "y": 504,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Console": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "Console",
+                "x": 756,
+                "y": 468,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Odds": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "Odds",
+                "x": 432,
+                "y": 360,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "AddOne": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "AddOne",
+                "x": 576,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "Max",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Max",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Odds",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "Odds",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Odds",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "AddOne",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "AddOne",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "data": {
+                "name": "Init",
+                "file": "./tests/0001_Update_chain_addone/data/max.txt"
+            },
+            "tgt": {
+                "process": "Max",
+                "port": "in"
+            }
+        },
+        {
+            "data": {
+                "name": "Max",
+                "state_file": "./state/Max",
+                "updater": "./tests/0001_Update_chain_addone/updaters/Max"
+            },
+            "tgt": {
+                "process": "Max",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Odds",
+                "state_file": "./state/Odds",
+                "updater": "./tests/0001_Update_chain_addone/updaters/Odds"
+            },
+            "tgt": {
+                "process": "Odds",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "AddOne",
+                "state_file": "./state/AddOne",
+                "updater": "./tests/0001_Update_chain_addone/updaters/AddOne"
+            },
+            "tgt": {
+                "process": "AddOne",
+                "port": "options"
+            }
+        }
+    ]
+}
