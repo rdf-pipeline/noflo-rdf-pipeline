@@ -1,0 +1,68 @@
+{
+    "properties": {
+        "name": "0002_Noflo_execute_js_file",
+        "description": "Demonstrates execution of a noflo component invoking an arbitrary Javascript piece of code with command line arguments."
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "Console": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "Console",
+                "x": 684,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "UPickHello": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "UPickHello",
+                "x": 468,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "UPickHello",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "data": {
+                "name": "UPickHello",
+                "state_file": "./state/UPickHello",
+                "updater": "/usr/local/bin/node"
+            },
+            "tgt": {
+                "process": "UPickHello",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Init",
+                "updater_args": "eng Fra HAW",
+                "file": "./tests/0002_Noflo_execute_js_file/javascript/UPickHello.js"
+            },
+            "tgt": {
+                "process": "UPickHello",
+                "port": "in"
+            }
+        }
+    ]
+}

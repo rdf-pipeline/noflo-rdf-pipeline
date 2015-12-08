@@ -1,0 +1,255 @@
+{
+    "properties": {
+        "name": "0004_Noflo_push_args_merge",
+        "description": "Basic test of query parameters being passed upstream."
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "Console": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "Console",
+                "x": 1044,
+                "y": 540,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Patients": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "Patients",
+                "x": 540,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Labs": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "Labs",
+                "x": 540,
+                "y": 468,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Merge": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "Merge",
+                "x": 684,
+                "y": 360,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Cardiology": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "Cardiology",
+                "x": 900,
+                "y": 252,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Immunology": {
+            "component": "rdf-components/FileNode",
+            "metadata": {
+                "label": "Immunology",
+                "x": 900,
+                "y": 396,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "Patients",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Merge",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 4
+            }
+        },
+        {
+            "src": {
+                "process": "Labs",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Merge",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "Merge",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Cardiology",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 6
+            }
+        },
+        {
+            "src": {
+                "process": "Merge",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Immunology",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 6
+            }
+        },
+        {
+            "src": {
+                "process": "Patients",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Labs",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Immunology",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Cardiology",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Console",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "data": {
+                "name": "Merge",
+                "state_file": "./state/Merge",
+                "updater": "./tests/0004_Noflo_push_args_merge/updaters/merge-updater",
+                "updater_args_template": "$Patients $Labs"
+            },
+            "tgt": {
+                "process": "Merge",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Cardiology",
+                "state_file": "./state/Cardiology",
+                "updater": "./tests/0004_Noflo_push_args_merge/updaters/cardiology-updater"
+            },
+            "tgt": {
+                "process": "Cardiology",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Immunology",
+                "state_file": "./state/Immunology",
+                "updater": "./tests/0004_Noflo_push_args_merge/updaters/immunology-updater"
+            },
+            "tgt": {
+                "process": "Immunology",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Patients",
+                "state_file": "./state/Patients",
+                "updater": "./tests/0004_Noflo_push_args_merge/updaters/patients-updater"
+            },
+            "tgt": {
+                "process": "Patients",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Init",
+                "updater_args": "(002|005)",
+                "file": "./tests/0004_Noflo_push_args_merge/data/patients-data.txt"
+            },
+            "tgt": {
+                "process": "Patients",
+                "port": "in"
+            }
+        },
+        {
+            "data": {
+                "name": "Labs",
+                "state_file": "./state/Labs",
+                "updater": "./tests/0004_Noflo_push_args_merge/updaters/labs-updater"
+            },
+            "tgt": {
+                "process": "Labs",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Init",
+                "updater_args": "(002|005)",
+                "file": "./tests/0004_Noflo_push_args_merge/data/labs-data.txt"
+            },
+            "tgt": {
+                "process": "Labs",
+                "port": "in"
+            }
+        }
+    ]
+}
