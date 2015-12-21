@@ -18,7 +18,7 @@
             }
         },
         "Patients": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "Patients",
                 "x": 540,
@@ -28,7 +28,7 @@
             }
         },
         "Labs": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "Labs",
                 "x": 540,
@@ -38,7 +38,7 @@
             }
         },
         "Merge": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "Merge",
                 "x": 684,
@@ -48,7 +48,7 @@
             }
         },
         "Cardiology": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "Cardiology",
                 "x": 900,
@@ -58,7 +58,7 @@
             }
         },
         "Immunology": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "Immunology",
                 "x": 900,
