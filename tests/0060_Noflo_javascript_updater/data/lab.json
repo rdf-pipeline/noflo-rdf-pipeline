@@ -1,0 +1,11 @@
+[
+  { "key": "002", 
+    "glucose-tests": [ { "glucose": 85, "date": "2012-02-01" },
+                       { "glucose": 95, "date": "2012-02-02" },
+                       { "glucose": 90, "date": "2012-02-03" } ]
+  },
+  { "key": "003", 
+    "glucose-tests": [ { "glucose": 100, "date": "2012-02-01" },
+                       { "glucose": 105, "date": "2012-02-02" } ]
+  }
+]

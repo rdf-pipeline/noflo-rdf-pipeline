@@ -1,4 +1,4 @@
-# noflo-rdf-pipeline test 0002_Execute_javascript_file
+# noflo-rdf-pipeline test 0002_Noflo_fork_execute_javascript_file
 
 This test demonstrates how the RDF FileNode component can be used to invoke an 
 arbitrary piece of JavaScript with command line parameters and get the results to pass 
