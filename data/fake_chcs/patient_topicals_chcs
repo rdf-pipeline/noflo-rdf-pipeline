@@ -1,5 +1,5 @@
 {
-    "@context": "http://10.255.255.5:8080/context?dataset=chcs-1",
+    "@context": "https://raw.githubusercontent.com/rdf-pipeline/noflo-rdf-pipeline/master/data/fake_chcs/context.json",
     "@graph": [
         {
             "_id": "9876-1234567",
