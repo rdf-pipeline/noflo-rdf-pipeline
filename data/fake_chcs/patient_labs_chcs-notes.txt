@@ -1,0 +1,192 @@
+=data=
+@@1 " HIV-1 AB~SEND PATIENT TO LAB~HIV TUBE~HIV TUBE  on 01 Jan 1990@0905"
+@@3 " 1523 INPROCESSING PANEL09JAN10~SEND PATIENT TO LAB~BLOOD~LAV  on 01 Jan 1990@0905"
+id           type      label        idNum        patient   batchId      admTime dispTxt labPri  nrsSg   <tsk                colMeth colSmpl sctSmpl  colDT               nrsSgDT             meprs    act   nonmod  usrSgDt             ordOrig inactSt  actSt  ordType usrSig  stpExpr             ordHCP specSite patLoc resTsk labTest schedT priorit intPat startDt             hcpSig hcpSigT             micConv
+101-14213948 chcss:101 070813-01265 070813-01265 6-7893413 070813-00532 0905    @@1     102_3-9 7-54367 1990-01-01T09:05:00 toLab   87-432           1990-01-01T08:07:00 1990-01-01T09:05:00 8119-380 inact nonmodC 1990-01-01T09:05:00 verbal  resulted signed lab     2-34256 2011-02-12T09:04:00 3-7856 85-43    85-23  E-1    89-3456 now    routine outpat 1990-01-01T09:05:00 3-7856 1990-01-01T14:33:00 
+101-14213950 chcss:101 070813-01267 070813-01267 6-7893413 070813-00532 0905    @@2     102_3-9 7-54367 1990-01-01T09:05:00 toLab   62-3    87612001 1990-01-01T08:07:00 1990-01-01T09:05:00 8119-380 inact nonmodC 1990-01-01T09:05:00 verbal  resulted signed lab     2-34256 2011-02-12T09:04:00 3-7856 55-89    85-23  E-1    75-2345 now    routine outpat 1990-01-01T09:05:00 3-7856 1990-01-01T14:33:00 
+63-1003681   chcss:63  DOEXXX,JANE  63-1003681   6-7893413                                                                                                                                                                                                                                                                                                                                                     for-4_41
+
+Act-to-Order-req
+data            order_required_data-101
+101-14213948-r0 102_33-10_14213948
+
+Order-req
+id                 type         label    dispOrd ordReqData usrResp
+102_33-10_14213948 chcss:101_11 103_2-10 1       103_2-10   8
+
+Act-to-Clin-chem
+data          order_required_data-101
+63-1003681-r0 63_04-6929184.919299_1003681
+63-1003681-r0 63_04-6929184.9391_1003681
+
+@@3 070814 INP 26065
+@@4 070814 N08 469187
+Clin-chem
+id                           type        label                acc specDT              loginDT             colSmpl labElt  reqLoc hcp    archDat    spec  resOrig
+63_04-6929184.919299_1003681 chcss:63_04 1990-01-01T08:07:01Z @@3 1990-01-01T08:07:01 1990-01-01T08:07:12 62-3    44-966  85-23  3-7856 1990-01-01       
+63_04-6929184.9391_1003681   chcss:63_04 1990-01-01T08:07:00Z @@4 1990-01-01T08:07:00 1990-01-01T08:07:12 87-432  33-4325 85-23  3-7856 1990-01-01 85-43 perfLab
+
+Clin-chem-to-Results
+clin-chem                    results
+63_04-6929184.919299_1003681 63_07-3428_6929184.919299_1003681
+63_04-6929184.919299_1003681 63_07-3475_6929184.919299_1003681
+63_04-6929184.919299_1003681 63_07-3484_6929184.919299_1003681
+63_04-6929184.919299_1003681 63_07-4102_6929184.919299_1003681
+63_04-6929184.919299_1003681 63_07-4103_6929184.919299_1003681
+63_04-6929184.9391_1003681   63_07-4220_6929184.9391
+
+Results:
+id                                type        result test    rnrDt               rnrAct certBy  intVwBy intVwDt             crtDt               ordrTsk      entryDt             entryBy rnrHcp method
+63_07-3428_6929184.919299_1003681 chcss:63_07 N      74-4321 1990-01-01T10:47:00 initld 4-24681 2-2009  1990-01-01T10:47:00 1990-01-01T10:54:08 111-54345690 1990-01-01T10:54:04 4-24681 3-7856 8710-1425
+63_07-3475_6929184.919299_1003681 chcss:63_07 N      60-3475 1990-01-01T10:47:00 initld 4-24681 2-2009  1990-01-01T10:47:00 1990-01-01T10:54:08 111-54345690 1990-01-01T10:54:04 4-24681 3-7856 8710-1468
+63_07-3484_6929184.919299_1003681 chcss:63_07 N      60-3484 1990-01-01T10:47:00 initld 4-24681 2-2009  1990-01-01T10:47:00 1990-01-01T10:54:08 111-54345690 1990-01-01T10:54:04 4-24681 3-7856 8710-1474
+63_07-4102_6929184.919299_1003681 chcss:63_07 O	     77-2345 1990-01-01T10:47:00 initld 4-24681 2-2009  1990-01-01T10:47:00 1990-01-01T10:54:08 111-54345690 1990-01-01T10:54:04 4-24681 3-7856 8710-2036
+63_07-4103_6929184.919299_1003681 chcss:63_07 POS    60-4103 1990-01-01T10:47:00 initld 4-24681 2-2009  1990-01-01T10:47:00 1990-01-01T10:54:08 111-54345690 1990-01-01T10:54:04 4-24681 3-7856 8710-2037
+63_07-4220_6929184.9391_1003681   chcss:63_07 @	     89-3456 1990-01-01T07:41:00 initld 8-43256 2-2009  1990-01-01T07:41:00 1990-01-01T07:47:00 113-43238431 1990-01-01T14:37:00 8-5432  3-7856 8710-2972
+
+=headings=
+id	_id
+labPri	lab_processing_priority-101
+nrsSg	nurse_sig-101
+<tsk	earliest_task_date_time-101	xsd:dateTime
+colMeth	collection_method-101
+colSmpl	collection_sample-101
+sctSmpl collection_sample_snomed_code-101
+colDT	date_time_of_collection-101	xsd:dateTime
+nrsSgDT	nurse_sig_date_time-101		xsd:dateTime
+meprs	meprs_code-101
+act	activity-101
+nonmod	nonmodifiable-101
+usrSgDt	user_sig_date_time-101		xsd:dateTime
+ordOrig	origin_of_order-101
+inactSt inactive_status-101
+actSt	active_status-101
+ordType order_type-101
+usrSig	user_sig-101
+stpExpr	stop_expiration_date-101	xsd:dateTime
+patient	patient-101
+ordHCP	ordering_hcp-101
+specSit	specimen_site-101
+patLoc	patient_location-101
+resTsk	resulted_task_flag-101
+labTest	lab_test-101
+schedT	schedule_type-101
+priorit	priority-101
+intPat	in_outpatient-101
+startDt	start_date_time-101		xsd:dateTime
+hcpSig	hcp_sig-101
+hcpSigT	hcp_sig_date_time-101		xsd:dateTime
+idNum	id_number-101
+batchId	batch_id_number-101
+admTime	administration_times-101
+dispTxt	display_text-101
+micConv micro_conversion_flag-63
+## Order-req
+dispOrd	display_order-101_11
+ordReqData	order_required_data-101_11
+usrResp	user_response-101_11
+## Clin-chem
+acc	accession-63_04
+specDT	date_time_specimen_taken-63_04	xsd:dateTime
+loginDT	login_date_time-63_04		xsd:dateTime
+colSmpl	collection_sample-63_04
+labElt	lab_work_element-63_04
+reqLoc	requesting_location-63_04
+hcp	hcp-63_04
+archDat	lab_archive_date-63_04		xsd:date
+spec	specimen-63_04
+resOrig	origin_of_result-63_04
+result	result-63_07
+##Results
+rnrDT	rnr_date_time-63_07		xsd:dateTime
+test	test-63_07
+rnrAct	rnr_action-63_07
+certBy	certify_person-63_07
+intVwBy	initial_viewer-63_07
+intVwDt	initial_viewer_date_time-63_07	xsd:dateTime
+crtDt	certify_date_time-63_07		xsd:dateTime
+ordrTsk	order_task-63_07
+entryDt	enter_date_time-63_07		xsd:dateTime
+rnrHcp	rnr_hcp-63_07
+entryBy	enter_person-63_07				Results
+
+=codes=
+101-14213948	101-14213948				070813-01265 ??
+chcss:101	chcss:101
+102_3-9		102_3-9					ROUTINE
+7-54367		7-54367					DOEXXX,JOHN
+toLab		chcss:101_110_03_E-SEND_PATIENT_TO_LAB	SEND_PATIENT_TO_LAB
+87-432		87-432					HIV TUBE		clinChem
+62-3		62-3					BLOOD			clinChem
+87612001	7502-83-987654				87612001
+8119-380	8119-380				BHAK
+inact		chcss:101_2_01_E-INACTIVE		INACTIVE
+nonmodC		chcss:101_3_02_E-NONMODIFIABLE		NONMODIFIABLE
+verbal		chcss:101_1_15_E-VERBAL			VERBAL
+resulted	chcss:101_2_03_E-RESULTED		RESULTED
+signed		chcss:101_2_02_E-SIGNED			SIGNED
+lab		102-4					LAB
+103_2-10	103_2-10				HIV SPECIMEN SOURCE
+2-34256		2-34256					DOEXXX,JOHN
+6-7893413	6-7893413				DOEXXX,JANE
+3-7856		3-7856					DOEXXX,JAMES
+85-43		85-43					SERUM
+55-89		55-89					BLOOD
+85-23		85-23					MILITARY SICKCALL NBHC 123
+E-1		chcss:101_161_E-1			1
+89-3456		89-3456					HIV-1 AB
+75-2345		75-2345					1523 INPROCESSING PANEL01JAN90
+now		chcss:101_5_06_E-NOW			NOW
+routine		102_3-9					ROUTINE
+outpat		chcss:101__04_E-OUTPATIENT		OUTPATIENT
+for-4_41	chcss:63__03_E-Micro_result_converted_for_4_41	Micro_result_converted_for_4_41
+44-966		44-966					LABORATORY BMC 1523
+4-24681		4-24681					DOEXXX,ANN
+33-4325		33-4325					N VIROMED REFRENCE LAB
+perfLab		chcss:63_04__24_E-PERFORMING_LABORATORY	PERFORMING_LABORATORY
+chcss:63_07	chcss:63_07				N
+74-4321		74-4321					INPROCESSING SICKLE CELL TEST
+initld		chcss:63_07__18_E-INITIALED		INITIALED
+2-2009		2-2009					DOEXXX,JAMES
+111-54345690	111-54345690				1990-01-01T09:05:00Z
+8710-1425	8710-1425				INPROCESSING SICKLE CELL TEST
+60-3475		60-3475					INPROCESSING RPR
+8710-1468	8710-1468				INPROCESSING RPR
+60-3484		60-3484					INPROCESSING G6PD
+8710-1474	8710-1474				INPROCESSING G6PD
+77-2345		77-2345					INPROCESSING ABO
+8710-2036	8710-2036				INPROCESSING ABO ONLY
+60-4103		60-4103					INPROCESSING RH
+8710-2037	8710-2037				INPROCESSING RH
+8-43256		8-43256					DOEXXX,BILL
+113-43238431	113-43238431				1990-01-01T09:05:00Z
+8-5432		8-5432					REFERENCELAB,TECH
+8710-2972	8710-2972				HIV INTEROPERABILITY (01JAN90)
+
+        {
+            "clinical_chemistry-63": [
+                {
+                    "result-63_04": [
+                        { "label": "N", }, { "label": "N", }, { "label": "N", }, { "label": "O", }, { "label": "POS", }
+                    ],
+                },
+                {
+                    "performing_lab_disclosures-63_04": [
+                        {
+                            "id": "63_832-1_6929184.9391_1003681",
+                            "disclosure_id-63_832": "1",
+                            "type": "chcss:63_832",
+                            "disclosure_text-63_832": "Specimen sent to and test performed by:VIROMED LABORATORIES6101 Blue Circle DriveMinnetonka, MN 55343",
+                            "label": "1"
+                        }
+                    ],
+                    "result-63_04": [
+                        {
+                            "sensitive_result-63_07": "Negative",
+                            "performing_lab_disclosure-63_07": "1",
+                            "label": "@",
+                        }
+                    ],
+                }
+            ],
+        }

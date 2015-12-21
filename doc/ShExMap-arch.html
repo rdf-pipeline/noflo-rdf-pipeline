@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+  <head>
+    <meta name="generator" content=
+	    "HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+    <title>ShExMap Pipeline Architecture</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content=
+	    "Copyright &#169; 2005-2010 W3C (MIT, ERCIM, Keio)" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="local.css"/>
+    <style type="text/css"><!--
+    .schema { border: solid medium #deb; margin: 0em 1em; }
+    .schema pre { background-color: #efc; }
+    .data { border: solid medium #bde; margin: 0em 1em; }
+    .data pre { background-color: #cef; }
+    .comment { color: #c68; }
+    --></style>
+
+    <script type="text/javascript"><!--
+    --> </script>
+  </head>
+  <body>
+    <p id="renderMe"><a href="http://htmlpreview.github.io/?https://github.com/rdf-pipeline/noflo-rdf-pipeline/blob/master/doc/ShExMap-arch.html">render me</a></p>
+    <p>
+      Given a trivial document:
+    </p>
+    <div>
+      <div style="float:left;" class="data">
+	<p>data</p>
+    <pre>
+{
+  "@context": {
+    "ex": "http://ex.example/ns#",
+    "clin1": "http://clinic.example/patients/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "patient": { "@id": "ex:patient", "@type": "@id" },
+    "observed": "ex:observed",
+    "diagnosed": "ex:diagnosed",
+    "code": {
+      "@id": "ex:code",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "ex:value",
+      "@type": "xsd:float"
+    },
+    "ex:because": {
+      "@type": "@id"
+    }
+  },
+  "patient": "clin1:1",
+  "observed": {
+    "@id": "clin1:1/obs1",
+    "code": "123-45",
+    "value": "218"
+  },
+  "diagnosed": {
+    "@id": "clin1:1/diag2",
+    "code": "234-56",
+    "value": ".95",
+    "ex:because": "clin1:1/obs1"
+  }
+}
+    </pre>
+      </div>
+      <div style="float:left;" class="schema">
+	<p>schema</p>
+    <pre>
+start = &lt;ClinicalDocumentShape&gt;
+
+
+&lt;ClinicalDocumentShape&gt; {
+  :observed @&lt;ObsShape&gt;,  <span class="comment"># queue(ObsShape, FHIRObs, Obs1, newObs1) -&gt; newObs1</span>
+  :diagnosed @&lt;DiagShape&gt; <span class="comment"># queue(DiagShape, FHIRDiag, Diag2, newDiag2) -&gt; newDiag2</span>
+}
+
+&lt;ObsShape&gt; {
+  :code LITERAL,
+  :value xsd:float
+}
+
+&lt;DiagShape&gt; {
+  :code LITERAL,
+  :value xsd:float
+  :because @&lt;ObsShape&gt;?    <span class="comment"># queue(ObsShape, FHIRObs, Obs1, newObs7) -&gt; newObs1</span>
+}
+    </pre>
+      </div>
+    <div style="clear:both;"/>
+    </div>
+    <p>
+      which we want to map to a new format, e.g. FHIR:
+    </p>
+    <pre>
+Map(from: ClinicalDocumentSchema, to: FHIRSchema, focus: Doc0, newRoot: FHIR0)
+    </pre>
+
+    <p>
+    </p>
+  </body>
+</html>
