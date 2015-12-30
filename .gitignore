@@ -48,6 +48,8 @@ crashlytics-build.properties
 
 # Created by .ignore support plugin (hsz.mobi)
 
+# Be explicit about .gitignore changes
+.gitignore
 
 # ignore node's local package cache
 node_modules
