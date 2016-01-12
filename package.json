@@ -16,7 +16,11 @@
     "noflo": "^0.5.14",
     "noflo-core": "^0.1.14",
     "noflo-filesystem": "^1.0.6",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "jsmin": "^1.0.1",
+    "log4js": "^0.6.29",
+    "jsonld": "^0.4.2",
+    "jsonld-cli": "^0.1.0"
   },
   "noflo": {
     "components": {

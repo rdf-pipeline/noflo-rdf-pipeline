@@ -4,6 +4,10 @@ rdf-pipeline/framework respository.
 
 ## Development
 
+Install noflo in this project
+
+    npm install noflo
+
 Register this project globally
 
     noflo-rdf-pipeline$ npm link

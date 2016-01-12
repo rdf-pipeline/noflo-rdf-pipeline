@@ -1,6 +1,6 @@
 {
     "properties": {
-        "name": "0002_Noflo_execute_js_file",
+        "name": "0002_Noflo_fork_execute_js_file",
         "description": "Demonstrates execution of a noflo component invoking an arbitrary Javascript piece of code with command line arguments."
     },
     "inports": {},
@@ -18,7 +18,7 @@
             }
         },
         "UPickHello": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "UPickHello",
                 "x": 468,
@@ -57,7 +57,7 @@
             "data": {
                 "name": "Init",
                 "updater_args": "eng Fra HAW",
-                "file": "./tests/0002_Noflo_execute_js_file/javascript/UPickHello.js"
+                "file": "./tests/0002_Noflo_fork_execute_js_file/javascript/UPickHello.js"
             },
             "tgt": {
                 "process": "UPickHello",

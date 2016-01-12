@@ -1,0 +1,171 @@
+{
+    "properties": {
+        "name": "/Users/glennamayo/src/noflo-rdf-pipeline/output.json"
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "Patient": {
+            "component": "rdf-components/json-file-node",
+            "metadata": {
+                "label": "Patient",
+                "x": 504,
+                "y": 396,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Js-Merge": {
+            "component": "rdf-components/js-node",
+            "metadata": {
+                "label": "Js-Merge",
+                "x": 828,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "Lab": {
+            "component": "rdf-components/json-file-node",
+            "metadata": {
+                "label": "Lab",
+                "x": 504,
+                "y": 540,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Output_pj8at": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 1116,
+                "y": 504,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "Patient",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Js-Merge",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "Lab",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Js-Merge",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 9
+            }
+        },
+        {
+            "src": {
+                "process": "Js-Merge",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_pj8at",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Lab",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_pj8at",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Patient",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_pj8at",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "data": {
+                "name": "Patient",
+                "stateFile": "./state/Patient",
+                "updater": "./tests/0060_Noflo_javascript_updater/updaters/query-updater.js"
+            },
+            "tgt": {
+                "process": "Patient",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Init",
+                "file": "./tests/0060_Noflo_javascript_updater/data/Patient.json",
+                "updaterArgs": "{ \"id\": \"002\"}"
+            },
+            "tgt": {
+                "process": "Patient",
+                "port": "in"
+            }
+        },
+        {
+            "data": {
+                "name": "Lab",
+                "stateFile": "./state/Lab",
+                "updater": "./tests/0060_Noflo_javascript_updater/updaters/query-updater.js"
+            },
+            "tgt": {
+                "process": "Lab",
+                "port": "options"
+            }
+        },
+        {
+            "data": {
+                "name": "Init",
+                "file": "./tests/0060_Noflo_javascript_updater/data/Lab.json",
+                "updaterArgs": "{ \"key\": \"002\" }"
+            },
+            "tgt": {
+                "process": "Lab",
+                "port": "in"
+            }
+        },
+        {
+            "data": {
+                "name": "Js-Merge",
+                "updater": "./tests/0060_Noflo_javascript_updater/updaters/merge-updater.js"
+            },
+            "tgt": {
+                "process": "Js-Merge",
+                "port": "options"
+            }
+        }
+    ]
+}

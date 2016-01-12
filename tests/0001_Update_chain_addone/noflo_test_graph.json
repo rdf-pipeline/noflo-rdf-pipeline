@@ -8,7 +8,7 @@
     "groups": [],
     "processes": {
         "Max": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "Max",
                 "x": 324,
@@ -18,7 +18,7 @@
             }
         },
         "Odds": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "Odds",
                 "x": 468,
@@ -28,7 +28,7 @@
             }
         },
         "AddOne": {
-            "component": "rdf-components/FileNode",
+            "component": "rdf-components/file-node",
             "metadata": {
                 "label": "AddOne",
                 "x": 612,
