@@ -1,0 +1,14 @@
+{
+     // Handcrafted translation of annotated_patient_labs_chcs.jsonld
+    "@context": "https://raw.githubusercontent.com/rdf-pipeline/noflo-rdf-pipeline/master/data/fake_chcs/context-fihr.json",
+    "@graph": [ ],
+
+    // How this jsonld came into existance.
+    "provence": {
+       "src": "annotated_patient_labs_chcs.ld+json",
+       "translator": "chcs2fihr.js",
+       "when": { "type": "xsd:dateTime", "value": "1990-01-01T09:05:00" },
+    }
+}
+
+
