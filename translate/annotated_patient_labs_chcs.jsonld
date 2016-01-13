@@ -1,95 +1,141 @@
 // Mike Carifio <mike@carif.io>
 
-/**
-  * 1. Admission, discharge, transfer records
-  * 2. Demographics
-  * 3. Meds
-  * 4. Labs
-  * 5. Diagnoses
-  * 6. Notes
-  **/
+// Narative:
+
+// No patient information (gender, age).
+
+// No medication prescribed.
+
+// Several labs (see below).
+
+// No diagnoses.
+
+// Patient Jane Doexxx saw Healthcare Provider John Doexxx, a nurse at the NAS Whiting Field Branch Health Clinic on an outpatient (walk-in) basis.
+
+// John Doexxx order several tests:
+
+//  * An HIV-1 Antibody test (lab-test-101)
+
+//  * A blood test, sent to a lab, for the following analysis:
+
+//    - comprehensive metabolic panel
+//    - sickle cell
+//    - rapid plasma reagin, identifies syphilis
+//    - G6PD, identifies anemia
+//    - ABO, blood type test
+//    - rhesus factor test
+
+// The tests were sent to N VIROMED REFRENCE LAB
 
 // TODO: no 'sex', 'MALE' 'FEMALE' below?
 // TODO: enum pattern in javascript?
 
 {
 
-
-
     "@context": "https://raw.githubusercontent.com/rdf-pipeline/noflo-rdf-pipeline/master/data/fake_chcs/context.json",
     "@graph": [
-        {
+        {   // test: HIV Tube test
             "_id": "101-14213948", // {{type}}-{{id}}
-            
-            "lab_processing_priority-101": {  // name of the event is 'lab processing'
+            "type": "chcss:101",
+            "display_text-101": " HIV-1 AB~SEND PATIENT TO LAB~HIV TUBE~HIV TUBE  on 01 Jan 1990@0905",
+            "batch_id_number-101": "070813-00532",
+            "administration_times-101": "0905",
+            "id_number-101": "070813-01265",
+
+            // http://www.uscg.mil/h1n1/docs/pdf/CHCS_HIV_deployment_samples.pdf
+            // Routine test, bloodwork?
+            "lab_processing_priority-101": {
                 "id": "102_3-9", // 102_3 is a subtype
-                "label": "ROUTINE" // TODO: ... then why's the name have 'priority' in it?
+                "label": "ROUTINE" //
             },
-            
+
+            // John Doexxx, id 54367
             "nurse_sig-101": {
                 "id": "7-54367",
                 "label": "DOEXXX,JOHN" // Nurse's name, {{last}}, {{first}} {{mi}}? {{title}}?, see http://10.255.241.50:8080/#clinical/CHCS-AB/Patient-2
             },
             
+            // TODO 'earliest'? When this overall task happens?
             "earliest_task_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
             
+            // http://www.med.navy.mil/sites/NMCP2/EduTrain/IMDCHCSNUGGETS/CO-LabOrders.pdf
             "collection_method-101": {
                 "id": "chcss:101_110_03_E-SEND_PATIENT_TO_LAB",
+                //     ^^^^^ two 's'?
                 "label": "SEND_PATIENT_TO_LAB"
             },
 
-            // blood test?
+            // HIV test
             "collection_sample-101": {
                 "id": "87-432",
-                "label": "HIV TUBE"
+                "label": "HIV TUBE" // aKindOf test
             },
 
+            // When this test actually happened. graph['date_time_of_collection-101'] >= graph["earliest_task_date_time-101"]?
             "date_time_of_collection-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T08:07:00"
             },
 
+            // ?
             "nurse_sig_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
-            "label": "070813-01265",
+
+
+            // https://www.meprs.info/:
+            // "The Medical Expense & Performance Reporting System (MEPRS) is the standard cost accounting system
+            //  for the Military Health System (MHS), containing Tri-Service financial, personnel, and workload
+            //  data from reporting medical and dental treatment facilities worldwide." 
             "meprs_code-101": {
                 "id": "8119-380",
                 "label": "BHAK"
             },
+
+            // ?
             "activity-101": {
                 "id": "chcss:101_2_01_E-INACTIVE",
                 "label": "INACTIVE"
             },
+
             "nonmodifiable-101": {
                 "id": "chcss:101_3_02_E-NONMODIFIABLE",
                 "label": "NONMODIFIABLE"
             },
+
             "user_sig_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
+
+            // How was the test ordered?
             "origin_of_order-101": {
                 "id": "chcss:101_1_15_E-VERBAL",
                 "label": "VERBAL"
             },
+
+            
             "inactive_status-101": {
                 "id": "chcss:101_2_03_E-RESULTED",
-                "label": "RESULTED"
+                "label": "RESULTED" // ?
             },
+            
             "active_status-101": {
                 "id": "chcss:101_2_02_E-SIGNED",
                 "label": "SIGNED"
             },
+
+            // labwork, same below
             "order_type-101": {
                 "id": "102-4",
                 "label": "LAB"
             },
-            "type": "chcss:101",
+
+            // Controls presentation in a UI?
             "order_required_data-101": [
                 {
                     "display_order-101_11": "1",
@@ -103,185 +149,264 @@
                     "id": "102_33-10_14213948"
                 }
             ],
+
             "user_sig-101": {
                 "id": "2-34256",
                 "label": "DOEXXX,JOHN"
             },
+
+            // expiration of specimen?
             "stop_expiration_date-101": {
                 "type": "xsd:dateTime",
                 "value": "2011-02-12T09:04:00"
             },
+
+            // The patient is Jane Doexxx.
+            // I expected sex and age here
             "patient-101": {
                 "id": "6-7893413",
                 "label": "DOEXXX,JANE"
+                // "sex": "FEMALE",
+                // "age": 31
             },
+
             "ordering_hcp-101": {
                 "id": "3-7856",
                 "label": "DOEXXX,JAMES"
             },
+
+            // An HIV TUBE creates a SERUM?
             "specimen_site-101": {
                 "id": "85-43",
                 "label": "SERUM"
             },
+
             "patient_location-101": {
                 "id": "85-23",
                 "label": "MILITARY SICKCALL NBHC 123"
             },
+
             "resulted_task_flag-101": {
                 "id": "chcss:101_161_E-1",
                 "label": "1"
             },
+
             "lab_test-101": {
                 "id": "89-3456",
-                "label": "HIV-1 AB"
+                "label": "HIV-1 AB" // Antibody test, https://labtestsonline.org/understanding/analytes/hiv-antibody/tab/test/
             },
+
             "schedule_type-101": {
                 "id": "chcss:101_5_06_E-NOW",
                 "label": "NOW"
             },
+
             "priority-101": {
                 "id": "102_3-9",
                 "label": "ROUTINE"
             },
-            "display_text-101": " HIV-1 AB~SEND PATIENT TO LAB~HIV TUBE~HIV TUBE  on 01 Jan 1990@0905",
-            "batch_id_number-101": "070813-00532",
+
             "in_outpatient-101": {
                 "id": "chcss:101__04_E-OUTPATIENT",
                 "label": "OUTPATIENT"
             },
+
             "start_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
+
             "hcp_sig_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T14:33:00"
             },
-            "administration_times-101": "0905",
-            "id_number-101": "070813-01265",
+
+            // hcp == health care provider. A nurse isn't a healthcare provider? This
+            // must be explicit?
             "hcp_sig-101": {
                 "id": "3-7856",
                 "label": "DOEXXX,JAMES"
             }
         },
-        {
+
+
+
+
+        { // test: blood
             "_id": "101-14213950",
+            "label": "070813-01267",
+            "type": "chcss:101",
+            "display_text-101": " 1523 INPROCESSING PANEL09JAN10~SEND PATIENT TO LAB~BLOOD~LAV  on 01 Jan 1990@0905",
+            "batch_id_number-101": "070813-00532",
+
+            // routine test
             "lab_processing_priority-101": {
                 "id": "102_3-9",
                 "label": "ROUTINE"
             },
+
+            // Nurse John Doexxx did both tests.
             "nurse_sig-101": {
                 "id": "7-54367",
                 "label": "DOEXXX,JOHN"
             },
+
             "earliest_task_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
+
+            // ? Not "INPATIENT?"
             "collection_method-101": {
                 "id": "chcss:101_110_03_E-SEND_PATIENT_TO_LAB",
                 "label": "SEND_PATIENT_TO_LAB"
             },
+
+            // blood test
             "collection_sample-101": {
                 "id": "62-3",
                 "label": "BLOOD"
             },
+
+            // Label with SNOMED taxonomy?
             "collection_sample_snomed_code-101": {
                 "id": "7502-83-987654",
                 "label": "87612001"
             },
+
             "date_time_of_collection-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T08:07:00"
             },
+
+            // nurse?
             "nurse_sig_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
-            "label": "070813-01267",
+
+            // https://www.meprs.info/:
+            // "The Medical Expense & Performance Reporting System (MEPRS) is the standard cost accounting system
+            //  for the Military Health System (MHS), containing Tri-Service financial, personnel, and workload
+            //  data from reporting medical and dental treatment facilities worldwide." 
             "meprs_code-101": {
-                "id": "8119-380",
+                "id": "8119-380", // 8119 is a FileMan indicator, 380 is the access privs mask (?)
                 "label": "BHAK"
             },
+
+            // inactive activity?
             "activity-101": {
                 "id": "chcss:101_2_01_E-INACTIVE",
                 "label": "INACTIVE"
             },
+
+            // this refers to what?
             "nonmodifiable-101": {
                 "id": "chcss:101_3_02_E-NONMODIFIABLE",
                 "label": "NONMODIFIABLE"
             },
+
             "user_sig_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
+
+            // blood work ordered verbally
             "origin_of_order-101": {
                 "id": "chcss:101_1_15_E-VERBAL",
                 "label": "VERBAL"
             },
+
             "inactive_status-101": {
                 "id": "chcss:101_2_03_E-RESULTED",
                 "label": "RESULTED"
             },
+
             "active_status-101": {
                 "id": "chcss:101_2_02_E-SIGNED",
                 "label": "SIGNED"
             },
+
+            // lab work, same as HIV TUBE above
             "order_type-101": {
                 "id": "102-4",
                 "label": "LAB"
             },
-            "type": "chcss:101",
+
+            // What's "user" mean here?
             "user_sig-101": {
                 "id": "2-34256",
                 "label": "DOEXXX,JOHN"
             },
+
             "stop_expiration_date-101": {
                 "type": "xsd:dateTime",
                 "value": "2011-02-12T09:04:00"
             },
+
+            // Jane Doexxx is the patient for the blood work.
             "patient-101": {
                 "id": "6-7893413",
                 "label": "DOEXXX,JANE"
             },
+
+            // Blood test ordered by Nurse Janes Doexxx.
             "ordering_hcp-101": {
                 "id": "3-7856",
                 "label": "DOEXXX,JAMES"
             },
+
+            // A blood test produces a blood specimen.
             "specimen_site-101": {
                 "id": "55-89",
                 "label": "BLOOD"
             },
+
+            // http://www.med.navy.mil/sites/pcola/nbhc/NasWhitingField/Pages/default.aspx
+            // NAS Whiting Field Branch Health Clinic
+            // What's a "military sickcall"?
             "patient_location-101": {
                 "id": "85-23",
                 "label": "MILITARY SICKCALL NBHC 123"
             },
+
+            // ?
             "resulted_task_flag-101": {
                 "id": "chcss:101_161_E-1",
                 "label": "1"
             },
+
+            // https://www.nlm.nih.gov/medlineplus/ency/article/003468.htm: "Comprehensive metabolic panel"
+            // Why is date a suffix?
             "lab_test-101": {
                 "id": "75-2345",
                 "label": "1523 INPROCESSING PANEL01JAN90"
             },
+
+            // Do it now
             "schedule_type-101": {
                 "id": "chcss:101_5_06_E-NOW",
                 "label": "NOW"
             },
+
+            // Different from lab_processing_priority-101?
             "priority-101": {
                 "id": "102_3-9",
                 "label": "ROUTINE"
             },
-            "display_text-101": " 1523 INPROCESSING PANEL09JAN10~SEND PATIENT TO LAB~BLOOD~LAV  on 01 Jan 1990@0905",
-            "batch_id_number-101": "070813-00532",
+
+            // NAS is an outpatient branch clinic. This might effect the meprs billing rate.
             "in_outpatient-101": {
                 "id": "chcss:101__04_E-OUTPATIENT",
                 "label": "OUTPATIENT"
             },
+
+
             "start_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T09:05:00"
             },
+
             "hcp_sig_date_time-101": {
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T14:33:00"
@@ -293,333 +418,442 @@
                 "label": "DOEXXX,JAMES"
             }
         },
-        {
+        
+        { // test: sickle cell
             "_id": "63-1003681",
+            // Why is this test labeled and the other two above are not?
+            "label": "DOEXXX,JANE",
+
+            // ?
             "micro_conversion_flag-63": {
                 "id": "chcss:63__03_E-Micro_result_converted_for_4_41",
                 "label": "Micro_result_converted_for_4_41"
             },
-            "label": "DOEXXX,JANE",
+
+            // A sickle cell test requires more chemical processing.
             "clinical_chemistry-63": [
                 {
+
                     "date_time_specimen_taken-63_04": {
                         "type": "xsd:dateTime",
                         "value": "1990-01-01T08:07:01"
                     },
+                    
                     "login_date_time-63_04": {
                         "type": "xsd:dateTime",
                         "value": "1990-01-01T08:07:12"
                     },
+                    
                     "collection_sample-63_04": {
                         "id": "62-3",
                         "label": "BLOOD"
                     },
+
                     "lab_work_element-63_04": {
                         "id": "44-966",
                         "label": "LABORATORY BMC 1523"
                     },
+
+                    // I assume this is different from the blood test above?
                     "specimen-63_04": {
                         "id": "55-89",
                         "label": "BLOOD"
                     },
+
+                    // For blood specimen 55-89, do these workups:
                     "result-63_04": [
-                        {
+                        { // sickle cell test
+
+                            // unusual label
+                            "id": "63_07-3428_6929184.919299_1003681",
+                            "type": "chcss:63_07",
+                            "label": "N",
+                            "result-63_07": "N",
+
                             "enter_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
+
                             "initial_viewer_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
                             "rnr_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
                             "test-63_07": {
                                 "id": "74-4321",
-				"label": "INPROCESSING SICKLE CELL TEST"
+                                "label": "INPROCESSING SICKLE CELL TEST"
                             },
+
                             "rnr_action-63_07": {
                                 "id": "chcss:63_07__18_E-INITIALED",
                                 "label": "INITIALED"
                             },
+
                             "certify_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
-                            "label": "N",
+
+
                             "initial_viewer-63_07": {
                                 "id": "2-2009",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "result-63_07": "N",
+
                             "certify_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:08"
                             },
+
                             "order_task-63_07": {
                                 "id": "111-54345690",
                                 "label": "1990-01-01T09:05:00Z"
                             },
+
                             "enter_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:04"
                             },
+
                             "rnr_hcp-63_07": {
                                 "id": "3-7856",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "type": "chcss:63_07",
-                            "id": "63_07-3428_6929184.919299_1003681",
+
                             "lab_method-63_07": {
                                 "id": "8710-1425",
                                 "label": "INPROCESSING SICKLE CELL TEST"
                             }
                         },
-                        {
+                        
+                        { // Syphilis test
+                            "type": "chcss:63_07",
+                            "id": "63_07-3475_6929184.919299_1003681",
+                            "label": "N",
+                            "result-63_07": "N",
+
+                            // What's an 'enter person' here? Data entry at a keyboard?
                             "enter_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
+
                             "initial_viewer_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+                            
                             "rnr_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
                             "test-63_07": {
                                 "id": "60-3475",
                                 "label": "INPROCESSING RPR"
                             },
+
                             "rnr_action-63_07": {
                                 "id": "chcss:63_07__18_E-INITIALED",
                                 "label": "INITIALED"
                             },
+
+                            // What does a certify person do?
                             "certify_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
-                            "label": "N",
+
                             "initial_viewer-63_07": {
                                 "id": "2-2009",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "result-63_07": "N",
+
                             "certify_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:08"
                             },
+
                             "order_task-63_07": {
                                 "id": "111-54345690",
                                 "label": "1990-01-01T09:05:00Z"
                             },
+
                             "enter_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:04"
                             },
+
                             "rnr_hcp-63_07": {
                                 "id": "3-7856",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "type": "chcss:63_07",
-                            "id": "63_07-3475_6929184.919299_1003681",
+
+                            // http://www.healthline.com/health/rpr-test#Overview1:
+                            // "A rapid plasma reagin (RPR) test is a blood test used to screen you for syphilis.
+                            //  It works by detecting the antibodies that your body produces to fight the infection."
                             "lab_method-63_07": {
                                 "id": "8710-1468",
-                                "label": "INPROCESSING RPR"
+                                "label": "INPROCESSING RPR" // 
                             }
                         },
-                        {
+                        { // anemia test
+
+                            "label": "N",
+                            "result-63_07": "N",
+                            "type": "chcss:63_07",
+                            "id": "63_07-3484_6929184.919299_1003681",
+
+
                             "enter_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
+
                             "initial_viewer_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
                             "rnr_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
+                            // http://www.hopkinsmedicine.org/healthlibrary/conditions/hematology_and_blood_disorders/g6pd_glucose-6-phosphate_dehydrogenase_deficiency_85,P00091/:
+                            // "G6PD deficiency is the lack of glucose-6-phosphate dehydrogenase (G6PD). G6PD is an enzyme found in red blood cells. A lack of it can cause hemolytic anemia."
                             "test-63_07": {
                                 "id": "60-3484",
                                 "label": "INPROCESSING G6PD"
                             },
+
+                            // g6pd_action?
                             "rnr_action-63_07": {
                                 "id": "chcss:63_07__18_E-INITIALED",
                                 "label": "INITIALED"
                             },
+
                             "certify_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
-                            "label": "N",
+
                             "initial_viewer-63_07": {
                                 "id": "2-2009",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "result-63_07": "N",
+
                             "certify_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:08"
                             },
+
                             "order_task-63_07": {
                                 "id": "111-54345690",
                                 "label": "1990-01-01T09:05:00Z"
                             },
+
                             "enter_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:04"
                             },
+
                             "rnr_hcp-63_07": {
                                 "id": "3-7856",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "type": "chcss:63_07",
-                            "id": "63_07-3484_6929184.919299_1003681",
+
                             "lab_method-63_07": {
                                 "id": "8710-1474",
                                 "label": "INPROCESSING G6PD"
                             }
                         },
-                        {
+                        { // blood type test
+                            "label": "O", // why did this label change?
+                            "result-63_07": "O",
+                            "type": "chcss:63_07",
+                            "id": "63_07-4102_6929184.919299_1003681",
+
                             "enter_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
+
                             "initial_viewer_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
                             "rnr_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
+                            // https://www.nlm.nih.gov/medlineplus/ency/article/001306.htm
+                            // Test blood type (A, B, AB, or O)/
                             "test-63_07": {
                                 "id": "77-2345",
                                 "label": "INPROCESSING ABO"
                             },
+
                             "rnr_action-63_07": {
                                 "id": "chcss:63_07__18_E-INITIALED",
                                 "label": "INITIALED"
                             },
+
                             "certify_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
-                            "label": "O",
+
                             "initial_viewer-63_07": {
                                 "id": "2-2009",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "result-63_07": "O",
+
                             "certify_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:08"
                             },
+
                             "order_task-63_07": {
                                 "id": "111-54345690",
                                 "label": "1990-01-01T09:05:00Z"
                             },
+
                             "enter_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:04"
                             },
+
                             "rnr_hcp-63_07": {
                                 "id": "3-7856",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "type": "chcss:63_07",
-                            "id": "63_07-4102_6929184.919299_1003681",
+
                             "lab_method-63_07": {
                                 "id": "8710-2036",
                                 "label": "INPROCESSING ABO ONLY"
                             }
                         },
-                        {
+
+                        { // rhesus factor test
+                            "id": "63_07-4103_6929184.919299_1003681",
+                            "type": "chcss:63_07",
+                            "label": "POS",
+                            "result-63_07": "POS",
+
                             "enter_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
+
                             "initial_viewer_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
                             "rnr_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:47:00"
                             },
+
+                            // http://www.mayoclinic.org/tests-procedures/rh-factor/basics/definition/prc-20013476
                             "test-63_07": {
                                 "id": "60-4103",
                                 "label": "INPROCESSING RH"
                             },
+
                             "rnr_action-63_07": {
                                 "id": "chcss:63_07__18_E-INITIALED",
                                 "label": "INITIALED"
                             },
+
                             "certify_person-63_07": {
                                 "id": "4-24681",
                                 "label": "DOEXXX,ANN"
                             },
-                            "label": "POS",
+
                             "initial_viewer-63_07": {
                                 "id": "2-2009",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "result-63_07": "POS",
+
                             "certify_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:08"
                             },
+
                             "order_task-63_07": {
                                 "id": "111-54345690",
                                 "label": "1990-01-01T09:05:00Z"
                             },
+
                             "enter_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T10:54:04"
                             },
+
                             "rnr_hcp-63_07": {
                                 "id": "3-7856",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "type": "chcss:63_07",
-                            "id": "63_07-4103_6929184.919299_1003681",
+
                             "lab_method-63_07": {
                                 "id": "8710-2037",
                                 "label": "INPROCESSING RH"
                             }
                         }
-                    ],
+                    ], // end of tests
+
+                    "label": "1990-01-01T08:07:01Z",
+                    "type": "chcss:63_04",
+                    "id": "63_04-6929184.919299_1003681"
+
+                    // test requests where they were done
                     "requesting_location-63_04": {
                         "id": "85-23",
                         "label": "MILITARY SICKCALL NBHC 123"
                     },
+
                     "hcp-63_04": {
                         "id": "3-7856",
                         "label": "DOEXXX,JAMES"
                     },
+
+                    // gene expression?
                     "accession-63_04": "070814 INP 26065",
+
                     "lab_archive_date-63_04": {
                         "type": "xsd:date",
                         "value": "1990-01-01"
                     },
-                    "label": "1990-01-01T08:07:01Z",
-                    "type": "chcss:63_04",
-                    "id": "63_04-6929184.919299_1003681"
                 },
-                {
+
+                { // metadata about the blood sample
+                    
+                    "id": "63_04-6929184.9391_1003681"
+                    "type": "chcss:63_04",
+                    //             ^^^^^ if I have a type attribute why do I put the type 63_04 in the id value above?
+                    "accession-63_04": "070814 N08 469187",
+                    "label": "1990-01-01T08:07:00Z",
+
                     "date_time_specimen_taken-63_04": {
                         "type": "xsd:dateTime",
                         "value": "1990-01-01T08:07:00"
                     },
+
                     "login_date_time-63_04": {
                         "type": "xsd:dateTime",
                         "value": "1990-01-01T08:07:12"
                     },
+
                     "performing_lab_disclosures-63_04": [
                         {
                             "id": "63_832-1_6929184.9391_1003681",
@@ -629,102 +863,123 @@
                             "label": "1"
                         }
                     ],
+
                     "origin_of_result-63_04": {
                         "id": "chcss:63_04__24_E-PERFORMING_LABORATORY",
                         "label": "PERFORMING_LABORATORY"
                     },
+
                     "collection_sample-63_04": {
                         "id": "87-432",
                         "label": "HIV TUBE"
                     },
+
                     "lab_work_element-63_04": {
                         "id": "33-4325",
                         "label": "N VIROMED REFRENCE LAB"
                     },
+
                     "specimen-63_04": {
                         "id": "85-43",
                         "label": "SERUM"
                     },
+
                     "result-63_04": [
                         {
+                            "type": "chcss:63_07",
+                            "id": "63_07-4220_6929184.9391_1003681",
+                            "sensitive_result-63_07": "Negative",
+                            "performing_lab_disclosure-63_07": "1",
+                            "label": "@",
+                            "result-63_07": "@", // @ is significant?
+
                             "enter_person-63_07": {
                                 "id": "8-5432",
                                 "label": "REFERENCELAB,TECH"
                             },
+
                             "initial_viewer_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T07:41:00"
                             },
+
                             "rnr_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T07:41:00"
                             },
+
                             "test-63_07": {
                                 "id": "89-3456",
                                 "label": "HIV-1 AB"
                             },
+
                             "rnr_action-63_07": {
                                 "id": "chcss:63_07__18_E-INITIALED",
                                 "label": "INITIALED"
                             },
+
                             "certify_person-63_07": {
                                 "id": "8-43256",
                                 "label": "DOEXXX,BILL"
                             },
-                            "sensitive_result-63_07": "Negative",
-                            "performing_lab_disclosure-63_07": "1",
-                            "label": "@",
+
                             "initial_viewer-63_07": {
                                 "id": "2-2009",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "result-63_07": "@",
+
                             "certify_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T07:47:00"
                             },
+
                             "order_task-63_07": {
                                 "id": "113-43238431",
                                 "label": "1990-01-01T09:05:00Z"
                             },
+
                             "enter_date_time-63_07": {
                                 "type": "xsd:dateTime",
                                 "value": "1990-01-01T14:37:00"
                             },
+
                             "rnr_hcp-63_07": {
                                 "id": "3-7856",
                                 "label": "DOEXXX,JAMES"
                             },
-                            "type": "chcss:63_07",
-                            "id": "63_07-4220_6929184.9391_1003681",
+
                             "lab_method-63_07": {
                                 "id": "8710-2972",
                                 "label": "HIV INTEROPERABILITY (01JAN90)"
                             }
                         }
                     ],
+
                     "requesting_location-63_04": {
                         "id": "85-23",
                         "label": "MILITARY SICKCALL NBHC 123"
                     },
+
                     "hcp-63_04": {
                         "id": "3-7856",
                         "label": "DOEXXX,JAMES"
                     },
-                    "accession-63_04": "070814 N08 469187",
+
                     "lab_archive_date-63_04": {
                         "type": "xsd:date",
                         "value": "1990-01-01"
                     },
-                    "label": "1990-01-01T08:07:00Z",
-                    "type": "chcss:63_04",
-                    "id": "63_04-6929184.9391_1003681"
+
                 }
             ],
+
+            // Why is this outside and also in the array above?
             "patient-63": {
                 "id": "6-7893413",
                 "label": "DOEXXX,JANE"
             },
+
+            // TODO move up correctly
             "type": "chcss:63"
         }
     ]
