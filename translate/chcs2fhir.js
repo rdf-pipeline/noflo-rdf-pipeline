@@ -6,7 +6,7 @@
  */
 
 var jsonld = require('jsonld'); // https://github.com/digitalbazaar/jsonld.js/
-var jsmin = require('jsmin');
+var decomment = require('decomment');
 var fs = require('fs');
 var util = require('util');
 var log4js = require('log4js'); // https://github.com/nomiddlename/log4js-node
@@ -34,7 +34,8 @@ function slurp(filename /*:Pathname*/) {
 // Load a file and return it as a JSON object. Remove comments.
 function load(filename) {
     var s = slurp(filename);
-    var j = jsmin.jsmin(s);
+    var j = decomment(s);
+    // logger.debug(j);
     return JSON.parse(j);
 }
 

@@ -31,7 +31,6 @@
 // TODO: enum pattern in javascript?
 
 {
-
     "@context": "https://raw.githubusercontent.com/rdf-pipeline/noflo-rdf-pipeline/master/data/fake_chcs/context.json",
     "@graph": [
         {   // test: HIV Tube test
@@ -64,8 +63,7 @@
             // http://www.med.navy.mil/sites/NMCP2/EduTrain/IMDCHCSNUGGETS/CO-LabOrders.pdf
             "collection_method-101": {
                 "id": "chcss:101_110_03_E-SEND_PATIENT_TO_LAB",
-                //     ^^^^^ two 's'?
-                "label": "SEND_PATIENT_TO_LAB"
+                 "label": "SEND_PATIENT_TO_LAB"
             },
 
             // HIV test
@@ -238,6 +236,8 @@
             "type": "chcss:101",
             "display_text-101": " 1523 INPROCESSING PANEL09JAN10~SEND PATIENT TO LAB~BLOOD~LAV  on 01 Jan 1990@0905",
             "batch_id_number-101": "070813-00532",
+            "administration_times-101": "0905",
+            "id_number-101": "070813-01267",
 
             // routine test
             "lab_processing_priority-101": {
@@ -411,8 +411,7 @@
                 "type": "xsd:dateTime",
                 "value": "1990-01-01T14:33:00"
             },
-            "administration_times-101": "0905",
-            "id_number-101": "070813-01267",
+
             "hcp_sig-101": {
                 "id": "3-7856",
                 "label": "DOEXXX,JAMES"
@@ -603,6 +602,7 @@
                                 "label": "INPROCESSING RPR" // 
                             }
                         },
+
                         { // anemia test
 
                             "label": "N",
@@ -674,6 +674,7 @@
                                 "label": "INPROCESSING G6PD"
                             }
                         },
+
                         { // blood type test
                             "label": "O", // why did this label change?
                             "result-63_07": "O",
@@ -814,7 +815,7 @@
 
                     "label": "1990-01-01T08:07:01Z",
                     "type": "chcss:63_04",
-                    "id": "63_04-6929184.919299_1003681"
+                    "id": "63_04-6929184.919299_1003681",
 
                     // test requests where they were done
                     "requesting_location-63_04": {
@@ -833,12 +834,12 @@
                     "lab_archive_date-63_04": {
                         "type": "xsd:date",
                         "value": "1990-01-01"
-                    },
+                    }
                 },
 
                 { // metadata about the blood sample
                     
-                    "id": "63_04-6929184.9391_1003681"
+                    "id": "63_04-6929184.9391_1003681",
                     "type": "chcss:63_04",
                     //             ^^^^^ if I have a type attribute why do I put the type 63_04 in the id value above?
                     "accession-63_04": "070814 N08 469187",
@@ -968,8 +969,7 @@
                     "lab_archive_date-63_04": {
                         "type": "xsd:date",
                         "value": "1990-01-01"
-                    },
-
+                    }
                 }
             ],
 
