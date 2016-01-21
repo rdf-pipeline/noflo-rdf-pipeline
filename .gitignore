@@ -52,4 +52,4 @@ crashlytics-build.properties
 .gitignore
 
 # ignore node's local package cache
-node_modules
+node_modulesdata/
