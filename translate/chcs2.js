@@ -72,12 +72,12 @@ function load(filename) {
 
 /**
  * Translate a demographics object to the target format.
- * @param {object} chcs_demographics - input object to extract demographics (patient data)
+ * @param {object} d - input object to extract demographics (patient data)
  * @returns {string|object} -  string if turtle, object if fhir
  */
 
-function translate_demographics(chcs_demographics) {
-    return {tbs: true};
+function translate_demographics(d) {
+    return {'demographics': {'name': d['label'], 'gender': d['sex-2'].label, 'dob': d['dob-2'].value}};
 }
 
 
@@ -121,19 +121,15 @@ function isPerson(o) {
 function translate_graph(graph, emitter) {
     if (!emitter) emitter = turtle_emitter;
 
-    // var result = clone(chcs_all);
-    var result = [];
-
-    // translate result in place and then return it
+    // traverse the graph either
     if (isList(graph)) {
-        result.push(graph.map(translate_graph));
+        return graph.map(translate_graph);
     } else if (isPerson(graph)) {
-            result.push(translate_demographics(graph));
+        return translate_demographics(graph);
     } else {
-        result.push(graph);
+        // TODO mike@carif.io: clone might be overkill here
+        return clone(graph);
     }
-
-    return result;
 }
 
 
