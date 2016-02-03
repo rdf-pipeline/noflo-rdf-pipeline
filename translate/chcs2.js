@@ -121,42 +121,163 @@ function lift_demographics(chcs_patient_object) {
     return result;
 }
 
+/**
+ * Translate chcs_date string in format yy(yy)?-mm-dd to fhir format mm-dd-yyyy.
+ * @param {string} chcs_date - yy(yy)?-mm-dd
+ * @returns {string} - mm-dd-yyyy
+ */
+function fhir_date(chcs_date) {
+    var m = chcs_date.match(/(\d{2,4})-(\d{2})-(\d{2})/);
+    if (m) {
+        var year = m[1]; // year group in re
+        if (year.length == 2) year = '19' + year; // fix up yy
+        var month = m[2]; // month group in re
+        var day = m[3]; // day group in re
+
+        return day + '-' + month + '-' + year;
+    }
+    throw "Bad chcs date: '" + chcs_date + "'"; // assume stacktrace
+}
 
 /**
+ * Translate a chcs name format 'LAST, FIRST MI TITLE' to fhir HumanName
+ * http://hl7-fhir.github.io/datatypes.html#HumanName
  *
- * Mapping taken from http://hl7-fhir.github.io/patient.html
+ * @param chcs_name
+ * @returns {{resourceType: string, use: string}}
+ *
+ * TODO: has to be a better way to write these things. Don't know how...
+ */
+function fhir_HumanName(chcs_name) {
+
+    var parts = chcs_name.split(/\s*,\s*/); // last, first mi title; split off the last name
+
+    // Name should have had a comma in it, so there should be two parts and the second part should have contents.
+    if (parts.length == 1 || parts[1].length == 0) {
+        throw "Bad chcs name, expecting 'LAST, FIRST MI? TITLE?': '" + chcs_name + "'"
+    }
+
+
+    var after_comma = parts[1].split(/\s+/); // the second part should ahve first mi? title?
+
+    // here: we have the various chcs parts. Assemble an fhir HumanName
+    var result = {
+        "resourceType": "HumanName",
+        "use": "usual", // "official"?
+    };
+
+    result.family = [ parts[0] ]; // yes, all lists
+    var given = [ after_comma[0] ];
+    if (after_comma.length > 1) // middle initial mi
+        given += ' ' + after_comma[1];
+    result.given = [ given ];
+
+    if (after_comma.length > 2) { // title
+        result.prefix = [ after_comma[2] ];
+    }
+
+    return result;
+}
+
+
+/**
+ * Turn a US social security number into a fhir identifier.
+ * @param chcs_ssn
+ * @returns {{use: string, type: null, system: string, assigner: string, type: null, value: *}}
+ */
+function fhir_identifier(chcs_ssn) {
+    var result = {
+        'use': 'usual',
+        'system': "ssn://www.us.gov/",  // made up
+        'assigner': 'US',
+        'type': 'fhir codeable concept for ssn',
+        'value': chcs_ssn
+    };
+
+    return result;
+}
+/**
+ * Translate a chcs Patient (id 'Patient-2', label 'Patient', fmDD 'fmdd:2') to its fhir analog.
+ * Fields for chcs 'Patient-2' (fmdd:2) taken from mongodb collection 'schema'.
+ * Fields for fhir taken from http://hl7-fhir.github.io/patient.html.
+ * There are 224 Patient fields to map. Do keys in the order they actually appear in patient records,
+ *   mongodb collection '2'.
+ *
+ * Note: chcs dates are yy(yy)?-mm-dd, fhir dates are mm-dd-yyyy. fhir_date converts chcs dates to the fhir format.
+ *
  * @param chcs_patient_object
- * @returns {object} - with fihr key/values
+ * @returns {object} - with fhir key/values and conventions.
  *
  * TODO: log warnings? Makes the function busy.
  */
-function translate_demographics_fihr(chcs_patient_object) {
+function translate_demographics_fhir(chcs_patient_object) {
+
+    // Built result attribute by attribute. Then return it.
     var result = {
         "resourceType" : "Patient",
-        "active" : true, // Whether this patient's record is in active use
+        //"active" : true, // Whether this patient's record is in active use
     };
 
-    // fihr name
-    if (_.has(chcs_patient_object, 'label')) {
-        result.name = [ chcs_patient_object.label ];
-    } else {
-        logger.warn("Expecting a patient name, found nothing");
+    // fhir identifier
+    if (_.has(chcs_patient_object, 'ssn-2')) {
+        result.identifier = fhir_identifier(chcs_patient_object['ssn-2']);
     }
 
-    // fihr gender
+    // fhir active -- skip
+
+    // fhir name
+    // chcs has both 'label' and 'name'. Try them in succession.
+    // TODO: what's the diff btwn label and name?
+    if (_.has(chcs_patient_object, 'name-2')) {
+        // "PATIENT NAME must be entered in the form 'LAST,FIRST MI TITLE'.  The last
+        // name may contain a hyphen or an apostrophe and must be followed by a comma\rand the first name.
+        // The first name may contain a hyphen.  No other
+        // punctuation characters are valid.  Middle initials and titles are optional.",
+        // value type is string.
+        result.name = [ fhir_HumanName(chcs_patient_object['name-2']) ];
+    } else {
+        if (_.has(chcs_patient_object, 'label')) {
+            result.name = [ fhir_HumanName(chcs_patient_object.label) ];
+        }
+    }
+
+    // fhir telecon
+
+    // fhir gender
     if (_.has(chcs_patient_object, 'sex-2')) {
-        result.gender = chcs_patient_object['sex-2'].label;
-    } else {
-        logger.warn("Expecting a patient name, found nothing");
+        result.gender = chcs_patient_object['sex-2'].label.toLowerCase(); // chcs only encodes 'MALE' and 'FEMALE'
     }
 
-    // fihr birthDate
+    // fhir birthDate
     if (_.has(chcs_patient_object, 'dob-2')) {
         // TODO convert dob-2 datetime into just a date?
-        result.birthDate = chcs_patient_object['dob-2'].value;
-    } else {
-        logger.warn("Expecting a patient name, found nothing");
+        result.birthDate = fhir_date(chcs_patient_object['dob-2'].value); // xsd:date, yyyy-mm-dd
     }
+
+
+
+    // fhir deceased
+
+    // fhir address
+
+    // fhir maritalStatus
+
+    // fhir multipleBirth // twins
+
+    // fhir photo
+
+    // fhir contact
+
+    // fhir animal -- skip
+
+    // fhir communication
+
+    // fhir careProvider
+
+    // fhir managingOrganization -- VA
+
+    // fhir link
+
 
     return result;
 }
@@ -167,8 +288,8 @@ function generate_turtle_demographics(d) {
     return {'turtle-demographics': {'name': d['label'], 'gender': d['sex-2'].label, 'dob': d['dob-2'].value}};
 }
 
-function generate_fihr_demographics(d) {
-    return {'fihr-demographics': {'name': d['label'], 'gender': d['sex-2'].label, 'dob': d['dob-2'].value}};
+function generate_fhir_demographics(d) {
+    return {'fhir-demographics': {'name': d['label'], 'gender': d['sex-2'].label, 'dob': d['dob-2'].value}};
 }
 
 
@@ -204,10 +325,10 @@ function process_file(filename) {
         // Translate the object from chcs jsonld to fhir jsonld
         //var result = {
         //    "@context": translate_context(chcs["@context"]),
-        //    "@graph": translate_graph_1to1(chcs["@graph"], is_chcsPerson, translate_demographics_fihr), // Array => Array
+        //    "@graph": translate_graph_1to1(chcs["@graph"], is_chcsPerson, translate_demographics_fhir), // Array => Array
         //};
 
-        var result = translate_graph_1to1(chcs["@graph"], is_chcsPerson, translate_demographics_fihr); // Array => Array
+        var result = translate_graph_1to1(chcs["@graph"], is_chcsPerson, translate_demographics_fhir); // Array => Array
 
         // See the result
         logger.debug(pretty_print(result[0]));
