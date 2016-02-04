@@ -184,17 +184,64 @@ function fhir_HumanName(chcs_name) {
  * Turn a US social security number into a fhir identifier.
  * @param chcs_ssn
  * @returns {{use: string, type: null, system: string, assigner: string, type: null, value: *}}
+ *
+ * TODO: would be helpful to capture the json path from the source chcs object
+ *   and put it in the result, something like 'x-source-path': "/@graph/* /type='chcss:2'/ssn-2"
  */
-function fhir_identifier(chcs_ssn) {
-    var result = {
-        'use': 'usual',
-        'system': "ssn://www.us.gov/",  // made up
-        'assigner': 'US',
-        'type': 'fhir codeable concept for ssn',
-        'value': chcs_ssn
+function fhir_identifier(chcs_ssn, chcs_dod_id) {
+    var result = [];
+
+    // ssn if it has a value
+    if (chcs_ssn) {
+        result.push({
+            'use': 'usual',
+            // 'system': "ssn://www.us.gov/",  // made up
+            'assigner': 'US',
+            'type': {'coding': 'chcss', 'text': chcs_ssn },
+            'value': chcs_ssn
+        });
+    };
+
+    // dod_id if it has a value
+    if (chcs_dod_id) {
+        result.push({
+            'use': 'usual',
+            // 'system': "dod://www.us.mil/",  // made up
+            'assigner': 'US',
+            'type': {'coding': 'chcss', 'text': chcs_dod_id },
+            'value': chcs_dod_id
+        });
     };
 
     return result;
+}
+
+
+/**
+ * Translate a chcs marital status into a fhir maritalStatus(http://hl7-fhir.github.io/valueset-marital-status.html)
+ * @param {string} chss_marital_status - acts as an enum
+ * @returns {}
+ */
+function fhir_maritalStatus(chss_marital_status) {
+    var uc_chss_marital_status = chss_marital_status.toUpperCase();
+    var code;
+    // mapping from http://hl7-fhir.github.io/v3/MaritalStatus/index.html
+    // Note that you could just take the first character of chcs_marital_status,
+    //  but this might change and it could introduce a bug.
+    if (uc_chss_marital_status == 'SINGLE, NEVER MARRIED') {
+        code = 'S';
+    } else if (uc_chss_marital_status == 'MARRIED') {
+        code = 'M';
+    } else if (uc_chss_marital_status == 'DIVORCED') {
+        code = 'D';
+    } else if (uc_chss_marital_status == 'WIDOWED') {
+        code = 'W';
+    } else {
+        throw "Bad marital status: '" + chss_marital_status + "'";
+    }
+
+    // return a "CodableConcept"
+    return {'coding': code, 'text': [ chss_marital_status ] };
 }
 /**
  * Translate a chcs Patient (id 'Patient-2', label 'Patient', fmDD 'fmdd:2') to its fhir analog.
@@ -218,9 +265,13 @@ function translate_demographics_fhir(chcs_patient_object) {
         //"active" : true, // Whether this patient's record is in active use
     };
 
-    // fhir identifier
-    if (_.has(chcs_patient_object, 'ssn-2')) {
-        result.identifier = fhir_identifier(chcs_patient_object['ssn-2']);
+    // chcs ssn-2 or chcs dod_id_number-2 to fhir identifier
+    // NB: dod_id_name is missing the 'name' in mongo and hence in the chcs jsonld.
+    if (_.has(chcs_patient_object, 'ssn-2') || _.has(chcs_patient_object, 'dod_id_-2')) {
+        // Looks like dod_id_number is usually just a repeat of ssn-2. But it might not be.
+        var ssn = _.result(chcs_patient_object, 'ssn-2', null);
+        var dod = _.result(chcs_patient_object, 'dod_id-2', null);
+        result.identifier = fhir_identifier(ssn, dod);
     }
 
     // fhir active -- skip
@@ -234,6 +285,8 @@ function translate_demographics_fhir(chcs_patient_object) {
         // The first name may contain a hyphen.  No other
         // punctuation characters are valid.  Middle initials and titles are optional.",
         // value type is string.
+
+        // translate chcs 'last, first mi title' to {'resourceType': 'HumanName' ... }
         result.name = [ fhir_HumanName(chcs_patient_object['name-2']) ];
     } else {
         if (_.has(chcs_patient_object, 'label')) {
@@ -250,7 +303,7 @@ function translate_demographics_fhir(chcs_patient_object) {
 
     // fhir birthDate
     if (_.has(chcs_patient_object, 'dob-2')) {
-        // TODO convert dob-2 datetime into just a date?
+        // translate chcs date yyyy-mm-dd to fhir date mm-dd-yyyy
         result.birthDate = fhir_date(chcs_patient_object['dob-2'].value); // xsd:date, yyyy-mm-dd
     }
 
@@ -261,6 +314,13 @@ function translate_demographics_fhir(chcs_patient_object) {
     // fhir address
 
     // fhir maritalStatus
+    // chcs "marital_status-2" one of 'single, never married', 'married', 'divorced', 'widowed'
+    //   probably all upper case
+    if (_.has(chcs_patient_object, 'marital_status-2')) {
+        // translate chcs date yyyy-mm-dd to fhir date mm-dd-yyyy
+        result.maritalStatus = fhir_maritalStatus(chcs_patient_object['dob-2'].value);
+    }
+
 
     // fhir multipleBirth // twins
 
@@ -284,13 +344,9 @@ function translate_demographics_fhir(chcs_patient_object) {
 
 
 
-function generate_turtle_demographics(d) {
-    return {'turtle-demographics': {'name': d['label'], 'gender': d['sex-2'].label, 'dob': d['dob-2'].value}};
-}
-
-function generate_fhir_demographics(d) {
-    return {'fhir-demographics': {'name': d['label'], 'gender': d['sex-2'].label, 'dob': d['dob-2'].value}};
-}
+//function generate_turtle_demographics(d) {
+//    return {'turtle-demographics': {'name': d['label'], 'gender': d['sex-2'].label, 'dob': d['dob-2'].value}};
+//}
 
 
 function translate_context(context) {
