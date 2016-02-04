@@ -243,6 +243,48 @@ function fhir_maritalStatus(chss_marital_status) {
     // return a "CodableConcept"
     return {'coding': code, 'text': [ chss_marital_status ] };
 }
+
+
+
+// http://hl7-fhir.github.io/datatypes.html#Address
+//{
+//    "line" : ["<string>"], // Street name, number, direction & P.O. Box etc.
+//    "city" : "<string>", // Name of city, town etc.
+//    "district" : "<string>", // District name (aka county)
+//    "state" : "<string>", // Sub-unit of country (abbreviations ok)
+//    "postalCode" : "<string>", // Postal code for area
+//    "country" : "<string>", // Country (can be ISO 3166 3 letter code)
+//    "period" : { Period } // Time period when address was/is in use
+//}
+
+function fhir_address(address) {
+//    "use" : "<code>", // home | work | temp | old - purpose of this address
+//    "type" : "<code>", // postal | physical | both
+    var result = {
+        // "resourceType" : "Address",
+        // from Element: extension
+        "resourceType" : "Address",
+        //    "use" : "<code>", // home | work | temp | old - purpose of this address
+        "type" : "postal", // postal | physical | both
+        // "text" : "<string>", // Text representation of the address
+        //  ... skip
+    };
+
+    var line = [];
+    if (address.street1) line.push(address.street1);
+    if (address.street2) line.push(address.street2);
+    if (address.street3) line.push(address.street3);
+    if (line.length > 0) result.line = line;
+
+    if (address.city) result.city = city;
+    if (address.county) result.district = address.county;
+    if (address.state) result.state = address.state;
+    if (address.country) result.country = address.country
+    if (address.zip) result.postalCode = address.zip;
+    return result;
+}
+
+
 /**
  * Translate a chcs Patient (id 'Patient-2', label 'Patient', fmDD 'fmdd:2') to its fhir analog.
  * Fields for chcs 'Patient-2' (fmdd:2) taken from mongodb collection 'schema'.
@@ -308,10 +350,27 @@ function translate_demographics_fhir(chcs_patient_object) {
     }
 
 
-
     // fhir deceased
 
     // fhir address
+    // Try to construct portions of an address. If you have any parts at all, convert it
+    //   into a fhir address. Otherwise skip it.
+    var address = {};  // intermediate address to pass into fhir_address.
+    if (_.has(chcs_patient_object, 'street_address-2')) address.street1 = chcs_patient_object['street_address-2'];
+    if (_.has(chcs_patient_object, 'street_address_2-2')) address.street2 = chcs_patient_object['street_address_2-2'];
+    if (_.has(chcs_patient_object, 'street_address_3-2')) address.street3 = chcs_patient_object['street_address_3-2'];
+    if (_.has(chcs_patient_object, 'city-2')) address.city = chcs_patient_object['city-2'];
+    if (_.has(chcs_patient_object, 'state-2')) {
+        var state_country = chcs_patient_object['city-2'].split('/');  // ME/USA
+        var state = state_country[0];
+        if (state_country.length > 1) address.country = state_country[1];
+    }
+    if (_.has(chcs_patient_object, 'county-2')) address.county = chcs_patient_object['county'];
+    if (_.has(chcs_patient_object, 'zip_code-2')) address.zip = chcs_patient_object['zip_code-2'];
+    if (_.keys(address).length > 0) {
+        result.address = [ fhir_address(address) ];
+    }
+
 
     // fhir maritalStatus
     // chcs "marital_status-2" one of 'single, never married', 'married', 'divorced', 'widowed'
