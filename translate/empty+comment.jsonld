@@ -1,5 +1,0 @@
-/* This is a comment, it gets minimized out */
-
-{
-  "@context": "http://somewhere.com" // is there a way to check that there's an "@context"
-}
